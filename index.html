@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mendes Redesign — Design Overview</title>
+<link rel="icon" href="assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/mendes.css">
+<style>
+  body{background:var(--grad-sky);min-height:100vh}
+  header.hub{padding:40px 0 20px}
+  header.hub .container{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  header.hub img{height:46px}
+  .intro{padding:56px 0 48px}
+  .intro h1{font-family:var(--font-display);font-weight:400;font-size:clamp(42px,6vw,80px);letter-spacing:0;line-height:1.02;margin:16px 0 18px}
+  .intro p{max-width:62ch;font-size:18px;color:var(--slate-500)}
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;padding-bottom:120px}
+  .pcard{background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-2);display:flex;flex-direction:column;transition:transform var(--t-med) var(--ease),box-shadow var(--t-med)}
+  .pcard:hover{transform:translateY(-6px);box-shadow:var(--sh-3)}
+  .pcard .prev{height:260px;position:relative;overflow:hidden;background:var(--sky-100)}
+  .pcard .prev iframe{position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform:scale(.42);transform-origin:0 0;pointer-events:none}
+  .pcard .bd{padding:26px 28px 30px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .pcard h2{font-size:24px}
+  .pcard p{margin:0;color:var(--slate-500);font-size:15px;flex:1}
+  .pcard .tags{display:flex;gap:8px;flex-wrap:wrap}
+  .sg .prev{display:grid;place-items:center;background:var(--grad-navy)}
+  .sg .prev .sw{display:flex;gap:10px}
+  .sg .prev .sw span{width:56px;height:56px;border-radius:16px;box-shadow:0 0 0 2px rgba(255,255,255,.15)}
+  .sg .prev .ty{font-family:var(--font-display);color:#fff;font-size:44px;margin-bottom:22px;text-align:center}
+  @media(max-width:860px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hub"><div class="container"><img src="assets/logo.png" alt="Mendes Family Dentistry, P.A."><span class="badge badge-outline">Homepage design review · Oct 2026</span></div></header>
+<section class="intro"><div class="container">
+  <span class="eyebrow">Website Redesign</span>
+  <h1>One brand,<br>three directions.</h1>
+  <p>A style guide built from the Mendes logo, and three homepage designs that apply it in different ways. Pick a favourite or mix sections across versions. Every design uses the same colours, type, and components, so they combine cleanly.</p>
+</div></section>
+<section class="container cards">
+  <a href="style-guide.html" class="pcard sg">
+    <div class="prev"><div><div class="ty">Aa · Style Guide</div><div class="sw"><span style="background:#233D85"></span><span style="background:#3563D6"></span><span style="background:#A9C8F4"></span><span style="background:#E6EFFC"></span><span style="background:#E3A33A"></span></div></div></div>
+    <div class="bd"><div class="tags"><span class="badge badge-navy">Foundation</span></div><h2>Brand &amp; UI Style Guide</h2><p>Logo analysis and usage, colour, typography, spacing, icons, components, imagery, voice, and how each reference design was translated.</p><span class="link-arrow">Open style guide <i data-lucide="arrow-right"></i></span></div>
+  </a>
+  <a href="home-v1.html" class="pcard">
+    <div class="prev"><iframe src="home-v1.html" loading="lazy" tabindex="-1" title="V1 preview"></iframe></div>
+    <div class="bd"><div class="tags"><span class="badge">V1</span><span class="badge badge-outline">Ref: PureSmile + Dentex</span></div><h2>Hometown Classic</h2><p>Clean and white, with a blob-masked hero, a bento grid of proof points, father-and-son doctor cards, and a soft booking block. The calmest, most trustworthy option.</p><span class="link-arrow">Open V1 <i data-lucide="arrow-right"></i></span></div>
+  </a>
+  <a href="home-v2.html" class="pcard">
+    <div class="prev"><iframe src="home-v2.html" loading="lazy" tabindex="-1" title="V2 preview"></iframe></div>
+    <div class="bd"><div class="tags"><span class="badge badge-gold">V2</span><span class="badge badge-outline">Ref: Denta Care</span></div><h2>Bold Smile</h2><p>A giant "Teeth for a Lifetime" headline, treatment marquees, pastel treatment rail, grey-to-colour team carousel, and an oversized footer wordmark. The most energetic option.</p><span class="link-arrow">Open V2 <i data-lucide="arrow-right"></i></span></div>
+  </a>
+  <a href="home-v3.html" class="pcard">
+    <div class="prev"><iframe src="home-v3.html" loading="lazy" tabindex="-1" title="V3 preview"></iframe></div>
+    <div class="bd"><div class="tags"><span class="badge badge-navy">V3</span><span class="badge badge-outline">Ref: Nuvica + Meet the Minds</span></div><h2>Glass &amp; Light</h2><p>Airy sky gradients, arch portraits, floating glass chips, a "since 1973" glass card, and a navy doctor slider. The most premium option.</p><span class="link-arrow">Open V3 <i data-lucide="arrow-right"></i></span></div>
+  </a>
+</section>
+
+<nav class="design-switcher" aria-label="Design versions">
+  <span class="ds-label">Mendes Redesign</span>
+  <a href="index.html" class="on">Overview</a>
+  <a href="style-guide.html">Style Guide</a>
+  <a href="home-v1.html">V1 Classic</a>
+  <a href="home-v2.html">V2 Bold</a>
+  <a href="home-v3.html">V3 Glass</a>
+</nav>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="assets/js/mendes.js"></script>
+</body>
+</html>
