@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mendes Family Dentistry | Dentist in St. Paul, MN — Home V5</title>
+<meta name="description" content="Gentle, modern dentistry for every generation. Mendes Family Dentistry, P.A., father-and-son dentists in St. Paul, MN.">
+<link rel="icon" href="assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/mendes.css">
+<style>
+  /* ===== V5 · Trusted Smiles (ref: Dentia Home 07) ===== */
+
+  /* Floating header card over the hero */
+  .float-head{position:absolute;left:0;right:0;top:24px;z-index:50}
+  .float-head .nav{background:#fff;border-radius:var(--r-lg);padding:0 14px 0 26px;height:80px;box-shadow:0 20px 40px -20px rgba(10,21,51,.45)}
+  .float-head .nav-logo img{height:42px}
+  @media(max-width:560px){.float-head{top:12px}.float-head .nav{height:66px;padding:0 10px 0 16px}.float-head .nav-logo img{height:32px}}
+
+  /* Hero */
+  .hero{position:relative;min-height:clamp(640px,52vw,760px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;
+    background:url(assets/img/old-site/slide5.jpg) 40% center/cover no-repeat}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,21,51,.9) 0%,rgba(15,29,69,.72) 38%,rgba(23,43,99,.2) 70%,rgba(23,43,99,.05) 100%),linear-gradient(0deg,rgba(10,21,51,.6) 0%,transparent 40%)}
+  .hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;padding-top:150px;padding-bottom:72px}
+  .trusted{display:flex;align-items:center;gap:14px;margin-bottom:26px;font-size:14px;font-weight:600}
+  .trusted .avatars img{width:44px;height:44px;border-color:rgba(255,255,255,.85);object-fit:cover;object-position:center 22%}
+  .hero h1{color:#fff;font-size:clamp(40px,5.4vw,72px);line-height:1.04;letter-spacing:-.035em;max-width:14ch;margin-bottom:22px}
+  .hero h1 .t-serif{color:var(--gold-500)}
+  .hero p{max-width:46ch;color:#D3DDF5;font-size:clamp(16px,1.4vw,18px);margin-bottom:32px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .score{background:#fff;border-radius:var(--r-lg);padding:28px 30px;text-align:center;min-width:220px;box-shadow:var(--sh-3)}
+  .score b{display:block;font-family:var(--font-display);font-weight:400;font-size:64px;line-height:1;color:var(--navy-700)}
+  .score b sup{font-size:.45em;color:var(--gold-500);top:-.9em}
+  .score span{display:block;margin-top:8px;font-size:15px;color:var(--slate-500)}
+  .score .stars{margin-top:12px}
+  @media(max-width:860px){.hero .container{grid-template-columns:1fr}.score{justify-self:start;min-width:0;padding:18px 24px;display:flex;align-items:center;gap:16px;text-align:left}.score b{font-size:44px}.score span{margin:0}.score .stars{display:none}}
+
+  /* Affiliations strip */
+  .members{background:var(--navy-900);padding:30px 0}
+  .members .container{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+  .members p{margin:0;color:#8FA3D6;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+  .members .logos{display:flex;align-items:center;gap:clamp(24px,5vw,64px);flex-wrap:wrap}
+  .members img{height:44px;width:auto;opacity:.85;transition:opacity var(--t-fast)}
+  .members img:hover{opacity:1}
+  .members .txt{color:#D8E2FA;font-family:var(--font-display);font-size:18px;line-height:1.15;opacity:.85}
+
+  /* About (centered heading with portraits either side) */
+  .about .container{display:grid;grid-template-columns:240px 1fr 240px;gap:clamp(24px,5vw,72px);align-items:center}
+  .about .por{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-2);position:relative;max-width:240px}
+  .about .por img{width:100%;aspect-ratio:4/5;object-fit:cover}
+  .about .por .tag{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(255,255,255,.92);border-radius:12px;padding:10px 12px;text-align:center}
+  .about .por .tag b{display:block;color:var(--navy-900);font-size:14.5px}
+  .about .por .tag span{font-size:12px;color:var(--slate-500)}
+  .about .por.r{margin-top:90px}
+  .about .por.l{margin-bottom:90px}
+  .about .mid{text-align:center}
+  .about .mid h2{font-size:clamp(30px,3.5vw,46px);line-height:1.15;margin:16px 0 20px}
+  .about .mid p{color:var(--slate-500);max-width:52ch;margin:0 auto 30px}
+  @media(max-width:980px){.about .container{grid-template-columns:1fr 1fr}.about .mid{grid-column:1/-1;order:-1}.about .por{justify-self:center}.about .por.r,.about .por.l{margin:0}}
+
+  /* Services */
+  .center-head{text-align:center;max-width:640px;margin:0 auto 52px}
+  .center-head h2{margin:14px 0 14px}
+  .center-head p{color:var(--slate-500);margin:0}
+  .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .svc{background:#fff;border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:34px 28px 28px;box-shadow:0 12px 34px -18px rgba(15,29,69,.18);display:flex;flex-direction:column;gap:12px;transition:transform var(--t-med) var(--ease),box-shadow var(--t-med),background var(--t-med)}
+  .svc .ill{width:64px;height:64px;color:var(--blue-500);margin-bottom:12px}
+  .svc .ill svg{width:64px;height:64px;stroke-width:1.25}
+  .svc h3{font-size:20px}
+  .svc p{margin:0;font-size:15px;color:var(--slate-500);flex:1}
+  .svc .plus{margin-top:14px;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;color:var(--navy-700);transition:all var(--t-med) var(--ease)}
+  .svc .plus svg{width:18px;height:18px}
+  .svc:hover{transform:translateY(-6px);box-shadow:var(--sh-3)}
+  .svc:hover .plus{background:var(--navy-600);border-color:var(--navy-600);color:#fff;transform:rotate(90deg)}
+  .svc-foot{text-align:center;margin-top:44px}
+  @media(max-width:1060px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.svc-grid{grid-template-columns:1fr}}
+
+  /* Counter band */
+  .band{background:var(--navy-900);color:#B7C6EC;position:relative;overflow:hidden}
+  .band::before{content:"";position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:340px;height:340px;background:url(assets/logo-mark.png) center/contain no-repeat;filter:brightness(0) invert(1);opacity:.05}
+  .band .container{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-block:64px;text-align:center;position:relative}
+  .band .n{font-size:clamp(40px,4.4vw,56px);font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1}
+  .band .n sup{color:var(--gold-500);font-size:.5em;top:-.7em}
+  .band p{margin:10px 0 0;font-size:15px}
+  @media(max-width:760px){.band .container{grid-template-columns:1fr 1fr;row-gap:36px}}
+
+  /* Why choose */
+  .why .container{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,88px);align-items:center}
+  .why h2{margin:14px 0 18px}
+  .why .rule{height:1px;background:var(--line);margin:30px 0}
+  .why .grid4{display:grid;grid-template-columns:1fr 1fr;gap:26px 32px}
+  .why .grid4 h4{font-size:17px;margin-bottom:6px;display:flex;gap:10px;align-items:center}
+  .why .grid4 h4 svg{width:20px;height:20px;color:var(--blue-500)}
+  .why .grid4 p{margin:0;font-size:14.5px;color:var(--slate-500)}
+  .collage{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:18px;align-items:start}
+  .collage .im{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-2)}
+  .collage .im img{width:100%;height:100%;object-fit:cover}
+  .collage .a{aspect-ratio:1/1}
+  .collage .a img{object-position:48% center}
+  .collage .b{aspect-ratio:3/4;grid-row:span 2;margin-top:60px}
+  .collage .b img{object-position:50% center}
+  .collage .c{aspect-ratio:1/1}
+  .collage .c img{object-position:62% center}
+  @media(max-width:980px){.why .container{grid-template-columns:1fr}}
+  @media(max-width:560px){.why .grid4{grid-template-columns:1fr}}
+
+  /* Team */
+  .team-sec{background:var(--sky-50)}
+  .team-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px}
+  .team-track::-webkit-scrollbar{display:none}
+  .tm{flex:0 0 calc((100% - 80px)/5);scroll-snap-align:start;position:relative;border-radius:var(--r-lg);overflow:hidden;background:var(--sky-100);aspect-ratio:2/3;max-height:340px}
+  .tm img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+  .tm:hover img{transform:scale(1.04)}
+  .tm .plate{position:absolute;left:10px;right:10px;bottom:10px;background:#fff;border-radius:14px;padding:12px 14px;text-align:center;box-shadow:var(--sh-2)}
+  .tm .plate b{display:block;color:var(--navy-900);font-size:15.5px;line-height:1.25}
+  .tm .plate span{font-size:12.5px;color:var(--slate-500)}
+  .tm.dr .plate{background:var(--navy-600)}
+  .tm.dr .plate b{color:#fff}
+  .tm.dr .plate span{color:#B7C6EC}
+  .team-nav{display:flex;gap:10px;justify-content:center;align-items:center;margin-top:30px;font-size:14px;color:var(--slate-500);font-variant-numeric:tabular-nums}
+  @media(max-width:1060px){.tm{flex-basis:calc((100% - 40px)/3)}}
+  @media(max-width:600px){.tm{flex-basis:calc((100% - 20px)/2)}}
+
+  /* FAQ */
+  .faq .container{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,96px);align-items:start}
+  .faq .acc-q{font-size:17px}
+  @media(max-width:900px){.faq .container{grid-template-columns:1fr}}
+
+  /* Image band */
+  .photo-band{position:relative;height:clamp(300px,30vw,440px);background:url(assets/img/old-site/slide1.jpg) center 30%/cover no-repeat;display:flex;align-items:center}
+  .photo-band::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,21,51,.82) 0%,rgba(15,29,69,.45) 40%,rgba(15,29,69,0) 70%)}
+  .photo-band .container{position:relative;color:#fff}
+  .photo-band h2{color:#fff;font-size:clamp(30px,3.6vw,48px);max-width:14ch;line-height:1.1}
+  .photo-band h2 .t-serif{color:var(--gold-500)}
+  .photo-band p{color:#C9D6F3;max-width:40ch;margin:14px 0 24px}
+
+  /* Testimonials */
+  .reviews{background:var(--sky-50)}
+  .rv-track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:44px 4px 6px}
+  .rv-track::-webkit-scrollbar{display:none}
+  .rv{flex:0 0 calc((100% - 66px)/4);scroll-snap-align:start;background:#fff;border-radius:var(--r-lg);padding:0 24px 28px;text-align:center;position:relative;box-shadow:var(--sh-1)}
+  .rv .qi{position:absolute;left:20px;top:20px;width:30px;height:30px;color:var(--blue-400)}
+  .rv .ini{width:72px;height:72px;border-radius:50%;margin:-36px auto 14px;background:var(--grad-navy);color:#fff;font-weight:700;font-size:20px;display:grid;place-items:center;border:5px solid var(--sky-50)}
+  .rv b{display:block;color:var(--navy-900)}
+  .rv small{display:block;color:var(--slate-400);font-size:12.5px;margin-bottom:14px}
+  .rv blockquote{margin:0;font-size:15px;color:var(--slate-700);line-height:1.6}
+  .rv.share{background:var(--grad-navy);color:#C9D6F3;padding-top:0;overflow:hidden}
+  .rv.share img{width:calc(100% + 48px);margin:0 -24px 18px;height:150px;object-fit:cover}
+  .rv.share b{color:#fff;font-size:18px;margin-bottom:8px}
+  .rv.share p{font-size:14px;margin:0 0 16px}
+  @media(max-width:1060px){.rv{flex-basis:calc((100% - 44px)/3)}}
+  @media(max-width:760px){.rv{flex-basis:calc((100% - 22px)/2)}}
+  @media(max-width:520px){.rv{flex-basis:86%}}
+
+  /* Info bar */
+  .info{background:var(--grad-brand);color:#DCE6FB}
+  .info .container{display:grid;grid-template-columns:repeat(3,1fr);padding-block:40px}
+  .info .it{display:flex;gap:18px;align-items:center;padding:0 24px}
+  .info .it+.it{border-left:1px solid rgba(255,255,255,.2)}
+  .info svg{width:40px;height:40px;color:#fff;flex:none;stroke-width:1.5}
+  .info h4{color:#fff;font-size:19px;margin-bottom:2px}
+  .info a{color:#fff;font-weight:600}
+  @media(max-width:860px){.info .container{grid-template-columns:1fr;gap:22px}.info .it{padding:0}.info .it+.it{border-left:0}}
+
+  /* Footer */
+  .footer{background:var(--navy-950);color:#97A6CC;padding:72px 0 120px;font-size:15px}
+  .footer .grid{display:grid;grid-template-columns:1.4fr .8fr 1fr 1.2fr;gap:40px}
+  .footer img.logo{height:46px;margin-bottom:20px}
+  .footer h5{color:#fff;font-size:15px;margin-bottom:18px}
+  .footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+  .footer a:hover{color:#fff}
+  .footer .ci{display:flex;gap:10px;margin-bottom:14px}
+  .footer .ci svg{width:18px;height:18px;color:var(--blue-400);flex:none;margin-top:3px}
+  .footer .ci b{display:block;color:#fff;font-size:14.5px}
+  .footer .soc{display:flex;gap:10px;margin-top:20px}
+  .footer .soc a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.06);display:grid;place-items:center}
+  .footer .soc svg{width:16px;height:16px}
+  .footer .bottom{margin-top:52px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px}
+  @media(max-width:900px){.footer .grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.footer .grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="float-head">
+  <div class="container"><div class="nav">
+    <a href="#" class="nav-logo"><img src="assets/logo.png" alt="Mendes Family Dentistry, P.A."></a>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#about">About <i data-lucide="chevron-down"></i></a></li>
+      <li><a href="#services">Services <i data-lucide="chevron-down"></i></a></li>
+      <li><a href="#team">Our Team</a></li>
+      <li><a href="#faq">Patients <i data-lucide="chevron-down"></i></a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary btn-arrow btn-sm">Book Appointment <span class="arr"><i data-lucide="arrow-up-right"></i></span></a>
+      <button class="nav-toggle" data-menu-open aria-label="Open menu"><i data-lucide="menu"></i></button>
+    </div>
+  </div></div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top"><img src="assets/logo.png" alt="Mendes"><button class="icon-btn" data-menu-close aria-label="Close menu"><i data-lucide="x"></i></button></div>
+  <ul><li><a href="#">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#team">Our Team</a></li><li><a href="#faq">Patients</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a href="tel:6516990404" class="btn btn-accent" style="width:100%"><i data-lucide="phone"></i>(651) 699-0404</a>
+</div>
+
+<main>
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="reveal">
+      <div class="trusted">
+        <div class="avatars"><img src="assets/img/old-site/meet-dr-charles-h-mendes.jpg" alt=""><img src="assets/img/old-site/meet-dr-paul-m-mendes.jpg" alt=""><img src="assets/img/old-site/team-Stephanie.jpg" alt=""><img src="assets/img/old-site/team-Paulina.jpg" alt=""><img src="assets/img/old-site/team-Sharon.jpg" alt=""></div>
+        <span>Trusted by four generations<br>of St. Paul families</span>
+      </div>
+      <h1>Pain-free, modern dentistry <span class="t-serif">for every generation</span></h1>
+      <p>Your family's hometown dental team. Father-and-son dentists Dr. Charles and Dr. Paul Mendes offer gentle preventive, cosmetic, and restorative care on Snelling Ave.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary btn-arrow btn-lg">Book Appointment <span class="arr"><i data-lucide="arrow-up-right"></i></span></a>
+        <a href="tel:6516990404" class="btn btn-ghost-light btn-lg"><i data-lucide="phone"></i>(651) 699-0404</a>
+      </div>
+    </div>
+    <div class="score reveal d2">
+      <b>40<sup>+</sup></b>
+      <span>Years of hometown care</span>
+      <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- Affiliations -->
+<div class="members">
+  <div class="container">
+    <p>Proud members of</p>
+    <div class="logos">
+      <img src="assets/img/old-site/ft-logos-01.png" alt="American Dental Association">
+      <img src="assets/img/old-site/ft-logos-03.png" alt="Minnesota Dental Association">
+      <img src="assets/img/old-site/ft-logos-02.png" alt="Great Lakes Implant Institute">
+      <span class="txt">St. Paul District<br>Dental Society</span>
+    </div>
+  </div>
+</div>
+
+<!-- About -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="por l reveal"><img src="assets/img/old-site/meet-dr-charles-h-mendes.jpg" alt="Dr. Charles H. Mendes"><div class="tag"><b>Dr. Charles H. Mendes</b><span>Practicing since 1973</span></div></div>
+    <div class="mid reveal d1">
+      <span class="eyebrow">About Us</span>
+      <h2>Father and son, delivering <span class="hl-serif">gentle, personalized dentistry</span> to St. Paul for more than 40 years</h2>
+      <p>Dr. Paul grew up watching his father care for patients and knew dentistry was his calling. Today they practice side by side, with one shared goal: helping you keep your teeth for a lifetime.</p>
+      <a href="#team" class="btn btn-primary btn-arrow">Meet the Doctors <span class="arr"><i data-lucide="arrow-up-right"></i></span></a>
+    </div>
+    <div class="por r reveal d2"><img src="assets/img/old-site/meet-dr-paul-m-mendes.jpg" alt="Dr. Paul M. Mendes"><div class="tag"><b>Dr. Paul M. Mendes</b><span>Restorative &amp; implants</span></div></div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section" id="services" style="padding-top:0">
+  <div class="container">
+    <div class="center-head reveal">
+      <span class="eyebrow">Our Services</span>
+      <h2 class="t-h2">Complete care for <span class="hl-serif">every smile</span></h2>
+      <p>From routine cleanings to implants, we provide high-quality general and cosmetic treatments for patients of all ages.</p>
+    </div>
+    <div class="svc-grid">
+      <a href="#" class="svc reveal">
+        <span class="ill"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M20 8c-7 0-11 5-11 12 0 5 2 9 4 13 2 4 3 9 3.5 14 .6 5 2.5 9 5.5 9s4-4 4.8-8.5c.8-4.3 2-8 6.2-8s5.4 3.7 6.2 8C40 52 41 56 44 56s4.9-4 5.5-9c.5-5 1.5-10 3.5-14 2-4 4-8 4-13 0-7-4-12-11-12-5 0-8 3-14 3S25 8 20 8z"/><path d="M40 18l2-4M46 22l4-2M44 16l3-3"/></svg></span>
+        <h3>General Care</h3>
+        <p>Preventive cleanings and exams, fillings, root canals, and gum disease treatment.</p>
+        <span class="plus"><i data-lucide="plus"></i></span>
+      </a>
+      <a href="#" class="svc reveal d1">
+        <span class="ill"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M18 6c-6 0-9 4-9 10 0 6 4 8 4 14h38c0-6 4-8 4-14 0-6-3-10-9-10-4 0-6 2-14 2S22 6 18 6z"/><path d="M26 30v6h12v-6M28 36v6M36 36v6M27 42h10M28 46h8M29 50h6M31 54h2"/></svg></span>
+        <h3>Restorative</h3>
+        <p>Dental implants, crowns, bridges, and dentures to restore comfort and function.</p>
+        <span class="plus"><i data-lucide="plus"></i></span>
+      </a>
+      <a href="#" class="svc reveal d2">
+        <span class="ill"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M20 12c-7 0-11 5-11 12 0 5 2 9 4 13 2 4 3 8 3.5 12 .6 5 2.5 8 5.5 8s4-4 4.8-8c.8-4 2-7 6.2-7s5.4 3 6.2 7c.8 4 1.8 8 4.8 8s4.9-3 5.5-8c.5-4 1.5-8 3.5-12 2-4 4-8 4-13"/><path d="M48 4l1.8 4.2L54 10l-4.2 1.8L48 16l-1.8-4.2L42 10l4.2-1.8zM56 18l1 2.4 2.4 1-2.4 1-1 2.4-1-2.4-2.4-1 2.4-1z"/></svg></span>
+        <h3>Cosmetic</h3>
+        <p>Teeth whitening, veneers, and bonding for a brighter, more confident smile.</p>
+        <span class="plus"><i data-lucide="plus"></i></span>
+      </a>
+      <a href="#" class="svc reveal d3">
+        <span class="ill"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="32" cy="26" r="16"/><path d="M26 24h.01M38 24h.01M26 31c3 3 9 3 12 0M20 46c-4 3-6 8-6 14M44 46c4 3 6 8 6 14M27 6c2-2 8-2 10 0"/></svg></span>
+        <h3>Pediatric &amp; Emergency</h3>
+        <p>Gentle care for growing smiles, and 24/7 emergency coverage for our patients.</p>
+        <span class="plus"><i data-lucide="plus"></i></span>
+      </a>
+    </div>
+    <div class="svc-foot reveal"><a href="#" class="btn btn-primary">View All Services</a></div>
+  </div>
+</section>
+
+<!-- Counters -->
+<section class="band">
+  <div class="container">
+    <div><div class="n"><span data-countup="40">40</span><sup>+</sup></div><p>Years serving St. Paul</p></div>
+    <div><div class="n"><span data-countup="4">4</span></div><p>Generations of patients</p></div>
+    <div><div class="n"><span data-countup="100">100</span><sup>+</sup></div><p>Insurance companies</p></div>
+    <div><div class="n">24/7</div><p>Emergency coverage</p></div>
+  </div>
+</section>
+
+<!-- Why choose -->
+<section class="why section">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">What Sets Us Apart</span>
+      <h2 class="t-h2">Exceptional care with a <span class="hl-serif">personal touch</span></h2>
+      <p class="t-lead">Our greatest goal is to provide excellent dental services and the highest quality of results, while working as a team in a fun, family-oriented environment.</p>
+      <div class="rule"></div>
+      <div class="grid4">
+        <div><h4><i data-lucide="headphones"></i>Your comfort</h4><p>Audio relaxation therapy and nitrous oxide for a spa-like visit.</p></div>
+        <div><h4><i data-lucide="clock"></i>Your convenience</h4><p>Full-service care with 24/7 emergency coverage.</p></div>
+        <div><h4><i data-lucide="users"></i>Family-friendly</h4><p>A welcoming office for kids, teens, adults, and seniors.</p></div>
+        <div><h4><i data-lucide="languages"></i>Se habla español</h4><p>Spanish-speaking help from our team.</p></div>
+      </div>
+    </div>
+    <div class="collage reveal d1">
+      <div class="im a"><img src="assets/img/old-site/slide4.jpg" alt="Smiling patient"></div>
+      <div class="im b"><img src="assets/img/old-site/slide2.jpg" alt="Smiling family and friends"></div>
+      <div class="im c"><img src="assets/img/old-site/slide3.jpg" alt="Happy family"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="team-sec section" id="team">
+  <div class="container">
+    <div class="center-head reveal">
+      <span class="eyebrow">Meet Our Dental Team</span>
+      <h2 class="t-h2">Committed to <span class="hl-serif">your smile</span></h2>
+      <p>We recognize that every patient is unique. Our experienced team works with you and your family to make every visit comfortable and stress-free.</p>
+    </div>
+    <div class="team-track" data-carousel="team">
+      <div class="tm dr"><img src="assets/img/old-site/meet-dr-charles-h-mendes.jpg" alt="Dr. Charles H. Mendes"><div class="plate"><b>Dr. Charles H. Mendes</b><span>DDS · Founder</span></div></div>
+      <div class="tm dr"><img src="assets/img/old-site/meet-dr-paul-m-mendes.jpg" alt="Dr. Paul M. Mendes"><div class="plate"><b>Dr. Paul M. Mendes</b><span>DDS · Restorative &amp; Implants</span></div></div>
+      <div class="tm"><img src="assets/img/old-site/team-Stephanie.jpg" alt="Stephanie"><div class="plate"><b>Stephanie</b><span>Dental Hygienist</span></div></div>
+      <div class="tm"><img src="assets/img/old-site/team-Paulina.jpg" alt="Paulina"><div class="plate"><b>Paulina</b><span>Dental Assistant</span></div></div>
+      <div class="tm"><img src="assets/img/old-site/team-Nancy.jpg" alt="Nancy"><div class="plate"><b>Nancy</b><span>Dental Assistant</span></div></div>
+      <div class="tm"><img src="assets/img/old-site/team-Sharon.jpg" alt="Sharon"><div class="plate"><b>Sharon</b><span>Financial Coordinator</span></div></div>
+      <div class="tm"><img src="assets/img/old-site/team-Barb.jpg" alt="Barb"><div class="plate"><b>Barb</b><span>Front Desk Receptionist</span></div></div>
+    </div>
+    <div class="team-nav"><button class="icon-btn" data-prev="team" aria-label="Previous"><i data-lucide="arrow-left"></i></button><span data-count-for="team">01 / 07</span><button class="icon-btn filled" data-next="team" aria-label="Next"><i data-lucide="arrow-right"></i></button></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq section" id="faq">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Everything You Need to Know</span>
+      <h2 class="t-h2" style="margin:14px 0 16px">Frequently asked questions</h2>
+      <p class="t-muted">Can't find your answer? Call us at <a href="tel:6516990404" style="color:var(--navy-600);font-weight:600">(651) 699-0404</a>.</p>
+      <a href="#" class="link-arrow" style="margin-top:8px">See all dental FAQs <i data-lucide="arrow-right"></i></a>
+    </div>
+    <div class="reveal d1">
+      <div class="acc-item open"><button class="acc-q" aria-expanded="true">Are you accepting new patients?<span class="pm"><i data-lucide="plus"></i></span></button><div class="acc-a"><div><p>Yes. We welcome new patients and whole families, and look forward to working with you for many years to come.</p></div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false">What should I do in a dental emergency?<span class="pm"><i data-lucide="plus"></i></span></button><div class="acc-a"><div><p>Call (651) 699-0404. Our patients have 24/7 emergency coverage. Dr. Charles has covered emergencies on every public holiday over the decades.</p></div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false">Do you offer services for kids?<span class="pm"><i data-lucide="plus"></i></span></button><div class="acc-a"><div><p>Absolutely. We're a family practice and provide gentle pediatric dentistry for children of all ages.</p></div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false">What are my options for replacing missing teeth?<span class="pm"><i data-lucide="plus"></i></span></button><div class="acc-a"><div><p>We offer dental implants, bridges, and dentures. Dr. Paul has extensive continuing education in restorative and implant dentistry.</p></div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false">Is teeth whitening safe?<span class="pm"><i data-lucide="plus"></i></span></button><div class="acc-a"><div><p>Yes. Professional whitening is safe and effective. Ask us which option is right for your smile.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Photo band -->
+<section class="photo-band">
+  <div class="container reveal">
+    <h2>Four generations of <span class="t-serif">St. Paul smiles</span></h2>
+    <p>From grandparents to grandkids, we're proud to be the dental home for families across our community.</p>
+    <a href="#contact" class="btn btn-accent btn-arrow">Book a Family Visit <span class="arr"><i data-lucide="arrow-up-right"></i></span></a>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="reviews section">
+  <div class="container">
+    <div class="center-head reveal" style="margin-bottom:20px">
+      <span class="eyebrow">Testimonials</span>
+      <h2 class="t-h2">Our happy <span class="hl-serif">patients</span></h2>
+      <p>Live reviews from Weave will display here. <span class="sample-tag">Sample quotes</span></p>
+    </div>
+    <div class="rv-track" data-carousel="rv">
+      <div class="rv share"><img src="assets/img/old-site/testimonials.jpg" alt=""><b>Share your smile</b><p>We'd love to hear about your experience. Ask our front desk for a comment card at your next visit, or leave us a review.</p><a href="#" class="btn btn-white btn-sm">Leave a Review</a></div>
+      <div class="rv"><svg class="qi" viewBox="0 0 24 24" fill="currentColor"><path d="M10 7H6a3 3 0 0 0-3 3v4h4v-4h3V7zm11 0h-4a3 3 0 0 0-3 3v4h4v-4h3V7z"/></svg><span class="ini">PN</span><b>Patient name</b><small>Weave review</small><blockquote>"Three generations of our family see Dr. Mendes. Every visit feels like coming home."</blockquote></div>
+      <div class="rv"><svg class="qi" viewBox="0 0 24 24" fill="currentColor"><path d="M10 7H6a3 3 0 0 0-3 3v4h4v-4h3V7zm11 0h-4a3 3 0 0 0-3 3v4h4v-4h3V7z"/></svg><span class="ini">PN</span><b>Patient name</b><small>Google review</small><blockquote>"I was always nervous about the dentist. The team here made me feel completely comfortable."</blockquote></div>
+      <div class="rv"><svg class="qi" viewBox="0 0 24 24" fill="currentColor"><path d="M10 7H6a3 3 0 0 0-3 3v4h4v-4h3V7zm11 0h-4a3 3 0 0 0-3 3v4h4v-4h3V7z"/></svg><span class="ini">PN</span><b>Patient name</b><small>Weave review</small><blockquote>"Called with a broken tooth on a holiday and they took care of me right away."</blockquote></div>
+      <div class="rv"><svg class="qi" viewBox="0 0 24 24" fill="currentColor"><path d="M10 7H6a3 3 0 0 0-3 3v4h4v-4h3V7zm11 0h-4a3 3 0 0 0-3 3v4h4v-4h3V7z"/></svg><span class="ini">PN</span><b>Patient name</b><small>Google review</small><blockquote>"Friendly, professional, and thorough. They explain everything and I leave smiling."</blockquote></div>
+    </div>
+    <div class="team-nav"><button class="icon-btn" data-prev="rv" aria-label="Previous"><i data-lucide="arrow-left"></i></button><button class="icon-btn filled" data-next="rv" aria-label="Next"><i data-lucide="arrow-right"></i></button></div>
+  </div>
+</section>
+
+<!-- Info bar -->
+<section class="info" id="contact">
+  <div class="container">
+    <div class="it"><i data-lucide="phone-call"></i><div><h4>Need dental services?</h4>Call: <a href="tel:6516990404">(651) 699-0404</a></div></div>
+    <div class="it"><i data-lucide="clock"></i><div><h4>Office hours</h4>Call for current hours · 24/7 emergencies</div></div>
+    <div class="it"><i data-lucide="map-pin"></i><div><h4>Visit us</h4>550 Snelling Ave S, Saint Paul, MN</div></div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <img src="assets/logo.png" class="logo logo-white" alt="Mendes Family Dentistry, P.A.">
+        <p>At Mendes Family Dentistry, P.A., we're dedicated to pain-free, modern dentistry for the whole family, with a strong focus on preventive care and patient education.</p>
+        <div class="soc"><a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a><a href="#" aria-label="Google Business Profile"><i data-lucide="map-pin"></i></a><a href="#" aria-label="YouTube"><i data-lucide="youtube"></i></a></div>
+      </div>
+      <div><h5>Practice</h5><ul><li><a href="#">Home</a></li><li><a href="#">About Us</a></li><li><a href="#">Meet the Team</a></li><li><a href="#">Our Blog</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h5>Our Services</h5><ul><li><a href="#">General Care</a></li><li><a href="#">Restorative</a></li><li><a href="#">Cosmetic</a></li><li><a href="#">Pediatric</a></li><li><a href="#">Emergency Care</a></li></ul></div>
+      <div><h5>Contact Us</h5>
+        <div class="ci"><i data-lucide="map-pin"></i><div><b>Office location</b>550 Snelling Ave S, Saint Paul, MN 55116</div></div>
+        <div class="ci"><i data-lucide="phone"></i><div><b>Call us</b><a href="tel:6516990404">(651) 699-0404</a></div></div>
+        <div class="ci"><i data-lucide="calendar-check"></i><div><b>Book online</b><a href="#">Appointment request</a></div></div>
+      </div>
+    </div>
+    <div class="bottom"><span>© 2026 Mendes Family Dentistry, P.A. All rights reserved.</span><span><a href="#">Privacy Policy</a> · <a href="#">Accessibility</a></span></div>
+  </div>
+</footer>
+
+<nav class="design-switcher" aria-label="Design versions">
+  <span class="ds-label">Mendes Redesign</span>
+  <a href="index.html">Overview</a>
+  <a href="style-guide.html">Style Guide</a>
+  <a href="home-v5.html" class="on">V1 Trusted</a>
+  <a href="home-v4.html">V2 Hometown</a>
+  <a href="home-v1.html">V3 Classic</a>
+</nav>
+
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="assets/js/mendes.js"></script>
+</body>
+</html>

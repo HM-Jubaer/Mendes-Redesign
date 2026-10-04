@@ -166,7 +166,7 @@
   .ref h4{margin-bottom:6px}
   .ref ul{margin:10px 0 0;padding-left:18px;font-size:14.5px;color:var(--slate-500)}
   .ref ul li{margin-bottom:4px}
-  @media(max-width:640px){.ref{grid-template-columns:1fr}}
+  @media(max-width:640px){.ref{grid-template-columns:1fr}.ref .refph{height:120px!important}}
 
   .next{background:var(--sky-50);border-radius:var(--r-xl);padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .next a{background:#fff;border-radius:var(--r-lg);padding:28px;border:1px solid var(--line);display:flex;flex-direction:column;gap:10px;transition:all var(--t-med) var(--ease)}
@@ -186,8 +186,8 @@
       <nav>
         <a href="index.html">Overview</a>
         <a href="home-v1.html">Home V1</a>
-        <a href="home-v2.html">Home V2</a>
-        <a href="home-v3.html">Home V3</a>
+        <a href="home-v4.html">Home V4</a>
+        <a href="home-v5.html">Home V5</a>
       </nav>
     </div>
     <span class="eyebrow">Website Redesign · Design System v1.0</span>
@@ -523,7 +523,7 @@
     <!-- ============ 08 IMAGERY ============ -->
     <section class="sg-sec" id="imagery">
       <div class="sg-head"><span class="sg-num">08</span><h2>Imagery</h2></div>
-      <p class="sg-intro">Real people, real smiles, bright rooms. Photography is warm and naturally lit, with whites and soft blues that sit easily on the Sky palette. Use the practice's own photos of Dr. Charles, Dr. Paul, the team, and the Snelling Ave office wherever possible. The stock images in these mockups are placeholders.</p>
+      <p class="sg-intro">Real people, real smiles, bright rooms. Photography is warm and naturally lit, with whites and soft blues that sit easily on the Sky palette. Use the practice's own photos of Dr. Charles, Dr. Paul, the team, and the Snelling Ave office wherever possible. V1 uses stock placeholders; V4 and V5 use the practice's own photos from the current website (doctor and team headshots are 240×300 and 199×300, so show them no larger than about 260px wide until new photos are taken).</p>
       <div class="grid-4">
         <div class="img-tile"><img src="assets/img/smile-laugh.jpg" alt=""><span class="badge badge-outline">Genuine smiles</span></div>
         <div class="img-tile arch"><img src="assets/img/dr-charles.jpg" alt=""><span class="badge badge-outline">Arch mask</span></div>
@@ -577,17 +577,19 @@
         <div class="ref"><img src="../Preferred design 2.png" alt="Reference: Meet the minds"><div><h4>Ref 2: "Meet the minds behind your smile"</h4><p class="note">A blue framed specialist slider with role tags, short bios, "practicing since", and a 01/17 counter.</p><ul><li><b>Doctor card</b> component: navy card, photo, tag, and a "since" line → all versions</li><li>Slider with a counter and arrow buttons → V3 team section</li><li>Avatar stack (+14) → glass chips in the hero</li></ul></div></div>
         <div class="ref"><img src="../preferred design 3.jpg" alt="Reference: Nuvica"><div><h4>Ref 3: "Nuvica" medical</h4><p class="note">Airy blue-white gradients, glassmorphism stat chips, an arch-masked portrait, a three-card service row with arrow circles, and a big stats row.</p><ul><li><b>Glass chips</b> floating on the hero image → V3 (and V1 accents)</li><li>Arch photo mask → V3 hero, imagery rules</li><li>"From 28/10/2003" card on the building image → "Since 1973" card in V3</li></ul></div></div>
         <div class="ref"><img src="../preferred design 4.jpg" alt="Reference: PureSmile"><div><h4>Ref 4: "PureSmile" implant center</h4><p class="note">A clean white layout, a blob-masked hero photo, a bento grid of mixed cards, and a soft form block beside a happy-patient photo.</p><ul><li><b>Bento grid</b> of services and proof points → V1</li><li>Blob hero and a two-tone headline (navy + blue) → V1</li><li>"Ready to transform your smile?" form card → V1 booking block</li></ul></div></div>
+        <div class="ref"><div class="refph" style="background:var(--grad-navy);border-radius:12px;height:220px;display:grid;place-items:center;color:#fff;font-weight:700;text-align:center;padding:16px">Dentia<br>Home 1</div><div><h4>Ref 5: Dentia "Home 1"</h4><p class="note">A full-width family photo with a left navy gradient, a navy info bar overlapping the hero, an about block with a checklist, tinted service cards, counters, team, FAQ, testimonials, and a blue booking banner.</p><ul><li>Gradient photo hero and <b>overlapping info bar</b> (call / visit / emergency) → V4</li><li>Old site's real "we offer" list → V4 about checklist</li><li>Blue booking banner → V4 CTA with the St. Paul skyline</li></ul></div></div>
+        <div class="ref"><div class="refph" style="background:var(--grad-brand);border-radius:12px;height:220px;display:grid;place-items:center;color:#fff;font-weight:700;text-align:center;padding:16px">Dentia<br>Home 07</div><div><h4>Ref 6: Dentia "Home 07"</h4><p class="note">A floating white header card over a full-bleed hero with an avatar stack and a stat card, a logo strip, a centred about heading framed by two photos, line-icon service cards, a navy counter band, a staggered collage, team cards with name plates, and a blue info bar.</p><ul><li>Logo strip → <b>"Proud members of"</b> ADA, MDA, Great Lakes Implant Institute → V5</li><li>Two framing photos → Dr. Charles and Dr. Paul around the story → V5</li><li>Team name-plate cards → real team photos in a carousel → V5</li></ul></div></div>
       </div>
     </section>
 
     <!-- ============ 11 DESIGNS ============ -->
     <section class="sg-sec" id="designs">
       <div class="sg-head"><span class="sg-num">11</span><h2>Home page designs</h2></div>
-      <p class="sg-intro">Three directions, all built strictly from this system. Same brand, same components, different personality.</p>
+      <p class="sg-intro">Three directions, all built strictly from this system. V4 and V5 use only the practice's own photography from the current website. Same brand, same components, different personality.</p>
       <div class="next">
         <a href="home-v1.html"><span class="badge">V1</span><b>Hometown Classic</b><span>Clean white, a bento grid, and a blob hero. The calmest and most trustworthy. Based on PureSmile and Dentex.</span><span class="link-arrow">Open design <i data-lucide="arrow-right"></i></span></a>
-        <a href="home-v2.html"><span class="badge badge-gold">V2</span><b>Bold Smile</b><span>Oversized type, marquee strips, and pastel treatment rails. The most energetic. Based on Denta Care.</span><span class="link-arrow">Open design <i data-lucide="arrow-right"></i></span></a>
-        <a href="home-v3.html"><span class="badge badge-navy">V3</span><b>Glass &amp; Light</b><span>Sky gradients, arch portraits, glass chips, and a navy doctor slider. The most premium. Based on Nuvica and Meet the Minds.</span><span class="link-arrow">Open design <i data-lucide="arrow-right"></i></span></a>
+        <a href="home-v4.html"><span class="badge badge-gold">V4</span><b>Hometown Care</b><span>Full-width family hero, overlapping info bar, real doctors and team, St. Paul skyline booking band. Based on Dentia Home 1.</span><span class="link-arrow">Open design <i data-lucide="arrow-right"></i></span></a>
+        <a href="home-v5.html"><span class="badge badge-navy">V5</span><b>Trusted Smiles</b><span>Floating header card, affiliations strip, doctors framing the story, team carousel, four-generations photo band. Based on Dentia Home 07.</span><span class="link-arrow">Open design <i data-lucide="arrow-right"></i></span></a>
       </div>
     </section>
   </main>
@@ -597,9 +599,9 @@
   <span class="ds-label">Mendes Redesign</span>
   <a href="index.html">Overview</a>
   <a href="style-guide.html" class="on">Style Guide</a>
-  <a href="home-v1.html">V1 Classic</a>
-  <a href="home-v2.html">V2 Bold</a>
-  <a href="home-v3.html">V3 Glass</a>
+  <a href="home-v5.html">V1 Trusted</a>
+  <a href="home-v4.html">V2 Hometown</a>
+  <a href="home-v1.html">V3 Classic</a>
 </nav>
 
 <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
