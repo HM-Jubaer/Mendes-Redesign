@@ -1,0 +1,336 @@
+/* =========================================================
+   Mendes Family Dentistry — Home V2
+   Layout + motion: Dentia "Homepage 2" (Designesia).
+   Colour: the practice's previous website palette
+   (navy #233D85→#122867, sage #9CB280→#829A63,
+    amber #C07617→#9F5E0C, brown text #4A433B, wood #2E2821).
+   Type stays on the Mendes style guide (Plus Jakarta Sans + Marcellus).
+   ========================================================= */
+
+/* ---------- 0. Tokens (old-site palette) ---------- */
+:root{
+  --navy:#233D85;            /* old H1 / heading blue */
+  --navy-deep:#122867;       /* old navy gradient end */
+  --sage:#9CB280;            /* old green buttons / callouts */
+  --sage-deep:#829A63;
+  --sage-ink:#6B8B42;        /* old link green */
+  --forest:#364621;
+  --amber:#C07617;           /* old orange buttons / link hover */
+  --amber-deep:#9F5E0C;
+  --brown:#4A433B;           /* old body text */
+  --bark:#2E2821;            /* old footer wood */
+  --cream:#F7F5EE;           /* from the old page texture (bg.jpg) */
+  --tint:#EEF2E6;            /* sage at ~15% on cream */
+  --line2:#E3E0D5;
+
+  --grad-navy2:linear-gradient(180deg,var(--navy) 0%,var(--navy-deep) 100%);
+  --grad-sage:linear-gradient(180deg,var(--sage) 0%,var(--sage-deep) 100%);
+  --grad-amber:linear-gradient(180deg,var(--amber) 0%,var(--amber-deep) 100%);
+  --shadow-1:0 10px 30px rgba(18,40,103,.10);
+  --r:20px;
+}
+
+/* ---------- 1. Base ---------- */
+html,body{overflow-x:clip}
+body.v2{background:#fff;color:var(--brown);line-height:1.8}
+.v2 h1,.v2 h2,.v2 h3,.v2 h4{color:var(--navy)}
+.v2 figure{margin:0}
+.v2 .container{max-width:calc(1200px + 2 * var(--gutter))}
+@media (min-width:1400px){.v2 .container{max-width:calc(1304px + 2 * var(--gutter))}}
+.sec{padding:120px 0}
+.sub{display:inline-block;font-size:15px;font-weight:700;color:var(--amber-deep);letter-spacing:.02em;margin-bottom:12px}
+.v2 h2{font-size:clamp(34px,3.6vw,48px);line-height:1.15;letter-spacing:-.025em;margin-bottom:20px}
+.v2 h2 .hl-serif,.v2 h1 .hl-serif{color:var(--sage-deep)}
+.v2 p{color:var(--brown)}
+.center{text-align:center}
+.lede{max-width:640px;margin:0 auto}
+
+/* Buttons: fx-slide text roll (Dentia .btn-main.fx-slide) */
+.btn2{
+  position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 26px;border-radius:8px;background:var(--amber-deep);color:#fff;
+  font-weight:700;font-size:15px;white-space:nowrap;transition:background .5s;
+}
+.btn2 span{display:block;transition:all .3s ease-in-out}
+.btn2::before{content:attr(data-hover);position:absolute;inset:auto 0;text-align:center;opacity:0;transform:translateY(-100%);transition:all .3s ease-in-out}
+.btn2:hover{background:var(--navy)}
+.btn2:hover span{transform:translateY(40px);opacity:0}
+.btn2:hover::before{transform:none;opacity:1}
+.btn2.navy{background:var(--navy)}
+.btn2.navy:hover{background:var(--amber-deep)}
+
+/* Entrance animations (Dentia: WOW + animate.css, 1s ease, short travel) */
+.js-anim [data-anim]{visibility:hidden}
+.animated{visibility:visible!important;animation-duration:1s;animation-fill-mode:both}
+.fadeInUp{animation-name:fadeInUp}
+.fadeInDown{animation-name:fadeInDown}
+.fadeInLeft{animation-name:fadeInLeft}
+.fadeInRight{animation-name:fadeInRight}
+.zoomIn{animation-name:zoomIn}
+.scaleIn{animation-name:scaleIn}
+@keyframes fadeInUp{from{opacity:0;transform:translate3d(0,30%,0)}to{opacity:1;transform:none}}
+@keyframes fadeInDown{from{opacity:0;transform:translate3d(0,-30%,0)}to{opacity:1;transform:none}}
+@keyframes fadeInLeft{from{opacity:0;transform:translate3d(-10%,0,0)}to{opacity:1;transform:none}}
+@keyframes fadeInRight{from{opacity:0;transform:translate3d(10%,0,0)}to{opacity:1;transform:none}}
+@keyframes zoomIn{from{opacity:0;transform:scale3d(.3,.3,.3)}50%{opacity:1}}
+@keyframes scaleIn{from{opacity:0;transform:scale3d(1.5,1.5,1.5)}to{opacity:1;transform:none}}
+/* image frame zooms in while the photo settles from 1.5x */
+.frame{overflow:hidden;border-radius:var(--r)}
+.frame img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+
+/* ---------- 2. Preloader (8-dot ring) ---------- */
+.pl{position:fixed;inset:0;z-index:9999;background:#fff;display:grid;place-items:center;transition:opacity .5s,visibility .5s}
+.pl.done{opacity:0;visibility:hidden}
+.pl-ring{width:80px;height:80px;position:relative;animation:plspin 1.2s cubic-bezier(.5,0,.5,1) infinite}
+.pl-ring i{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--sage-deep);left:35px;top:0;transform-origin:5px 40px}
+.pl-ring i:nth-child(odd){background:var(--navy)}
+@keyframes plspin{to{transform:rotate(360deg)}}
+
+/* ---------- 3. Header (Dentia: absolute → .smaller fixed glass → hides on scroll down) ---------- */
+.h2-hd{position:absolute;inset:0 0 auto;z-index:1001;transition:all .5s}
+.h2-hd .container{display:flex;align-items:center;gap:24px}
+.h2-hd .logo{flex:none}
+.h2-hd .logo img{height:42px;width:auto;transition:height .5s}
+.h2-menu{display:flex;justify-content:center;flex:1;gap:18px;list-style:none;margin:0;padding:0}
+.h2-menu>li{position:relative}
+.h2-menu>li>a{display:inline-flex;align-items:center;gap:3px;padding:35px 0;font-size:14.5px;font-weight:600;color:var(--navy);white-space:nowrap;transition:padding .5s,color .3s}
+.h2-menu>li>a svg{width:13px;height:13px;opacity:.55}
+.h2-menu>li:hover>a,.h2-menu>li>a.active{color:var(--amber-deep)}
+.h2-dd{position:absolute;left:-15px;top:100%;min-width:210px;margin:0;padding:8px 0;list-style:none;background:#fff;border-radius:6px;box-shadow:var(--shadow-1);opacity:0;visibility:hidden;transition:all .2s ease}
+.h2-menu>li:hover>.h2-dd,.h2-menu>li:focus-within>.h2-dd{opacity:1;visibility:visible}
+.h2-dd a{display:block;padding:6px 18px;font-size:14px;color:var(--brown);transition:all .2s}
+.h2-dd a:hover{background:var(--sage-deep);color:#fff}
+.h2-dd.cols-2{display:grid;grid-template-columns:1fr 1fr;min-width:400px}
+.h2-right{display:flex;align-items:center;gap:12px;flex:none}
+.h2-right .btn2{padding-inline:20px}
+.h2-hd .container{gap:20px}
+.burger{width:40px;height:40px;display:grid;align-content:center;gap:7px;justify-items:end}
+.burger i{display:block;width:30px;height:2px;border-radius:2px;background:var(--navy);transition:width .5s}
+.burger i:nth-child(2){width:22px}
+.burger:hover i{width:70%}
+.h2-call{display:none;width:44px;height:44px;border-radius:50%;place-items:center;background:var(--tint);color:var(--navy)}
+.h2-call svg{width:19px;height:19px}
+
+.h2-hd.smaller{position:fixed;background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line2)}
+.h2-hd.smaller .h2-menu>li>a{padding:20px 0}
+.h2-hd.smaller .logo img{height:40px}
+.h2-hd.scroll-down{margin-top:-90px}
+
+/* Side panel (Dentia #extra-wrap) — carries the old header's utility content */
+.sp{position:fixed;top:0;bottom:0;right:-500px;width:min(500px,100%);z-index:1100;overflow:auto;padding:40px;
+  background:rgba(18,40,103,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#D9DEEC;transition:right .5s}
+.sp.open{right:0}
+.sp-bg{position:fixed;inset:0;z-index:1099;background:rgba(46,40,33,.35);opacity:0;visibility:hidden;transition:all .5s}
+.sp-bg.open{opacity:1;visibility:visible}
+.sp-close{position:absolute;right:28px;top:28px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.12);color:#fff}
+.sp-close svg{width:20px;height:20px}
+.sp img.logo-white{height:44px;margin-bottom:28px}
+.sp h4{color:#fff;font-size:18px;margin:30px 0 14px}
+.sp p{color:#D9DEEC;font-size:15px}
+.sp ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px}
+.sp ul a{color:#fff}
+.sp ul a:hover{color:var(--sage)}
+.sp .soc{display:flex;gap:8px;margin-top:8px}
+.sp .soc a,.ft2-soc a{width:36px;height:36px;border-radius:6px;display:grid;place-items:center;background:rgba(255,255,255,.1);color:#fff;transition:all .3s}
+.sp .soc a:hover,.ft2-soc a:hover{background:var(--sage-deep)}
+.sp .soc svg,.ft2-soc svg{width:16px;height:16px}
+
+/* Mobile menu (Dentia ≤993: header grows to full height, submenus slide) */
+.mm{display:none}
+@media (max-width:1399.98px){.h2-right .btn2{display:none}}
+@media (max-width:1199.98px){
+  .h2-menu{display:none}
+  .h2-hd{position:fixed;background:#fff;box-shadow:0 1px 0 var(--line2)}
+  .h2-hd .container{min-height:76px}
+  .h2-hd .logo img{height:38px}
+  .h2-right{margin-left:auto}
+  .h2-call{display:grid}
+  .h2-hd.scroll-down{margin-top:0}
+  .mm{display:block;position:fixed;inset:76px 0 0;z-index:1000;background:#fff;overflow:auto;padding:10px 20px 40px;transform:translateY(-8px);opacity:0;visibility:hidden;transition:all .3s}
+  .mm.open{opacity:1;visibility:visible;transform:none}
+  .mm>ul{list-style:none;margin:0;padding:0}
+  .mm>ul>li{border-bottom:1px solid var(--line2)}
+  .mm .row{display:flex;justify-content:space-between;align-items:center}
+  .mm .row>a{flex:1;padding:14px 0;font-weight:700;color:var(--navy)}
+  .mm .row button{width:36px;height:36px;display:grid;place-items:center;color:var(--navy);transition:transform .3s}
+  .mm .row button svg{width:18px;height:18px}
+  .mm li.open .row button{transform:rotate(45deg)}
+  .mm .sm{height:0;overflow:hidden;transition:height .3s cubic-bezier(.23,1,.32,1)}
+  .mm .sm ul{list-style:none;margin:0;padding:0 0 12px 14px}
+  .mm .sm a{display:block;padding:7px 0;color:var(--brown)}
+  .mm .mm-cta{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px}
+}
+
+/* ---------- 4. Hero ---------- */
+.h2-hero{background:var(--tint);padding:150px 0 0;position:relative;overflow:hidden}
+.h2-hero::before{content:"";position:absolute;inset:0;background:url(../img/old-site/bg.jpg) repeat;opacity:.35;mix-blend-mode:multiply;pointer-events:none}
+.h2-hero .container{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.h2-hero .txt{padding-bottom:90px}
+.h2-hero h1{font-size:clamp(40px,4.6vw,60px);line-height:1.12;letter-spacing:-.027em;margin-bottom:22px}
+.h2-hero .txt>p{font-size:17px;max-width:540px;margin-bottom:30px}
+.h2-hero hr{border:0;border-top:1px solid rgba(74,67,59,.16);margin:44px 0 22px;max-width:560px}
+.affil{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.affil small{font-size:13px;font-weight:700;color:var(--navy);letter-spacing:.04em}
+.affil img{height:34px;width:auto;filter:brightness(0);opacity:.55;transition:opacity .3s}
+.affil a:hover img{opacity:.85}
+
+.h2-visual{position:relative;align-self:end;display:flex;justify-content:center}
+.h2-visual .panel{position:absolute;left:12%;right:12%;top:16%;bottom:0;border-radius:var(--r) var(--r) 0 0;background:var(--grad-sage)}
+.h2-visual .panel::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px 300px at 50% 0%,rgba(255,255,255,.35),transparent 70%)}
+.h2-visual img.docs{position:relative;z-index:1;width:min(560px,100%);height:auto;display:block}
+.fcard{position:absolute;z-index:2;display:flex;align-items:center;gap:14px;padding:18px 22px;border-radius:var(--r);box-shadow:var(--shadow-1)}
+.fcard .ic{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;flex:none}
+.fcard .ic svg{width:24px;height:24px}
+.fcard b{display:block;font-size:17px;line-height:1.3}
+.fcard span{display:block;font-size:13.5px;line-height:1.5}
+.fcard.dark{right:0;top:44%;background:var(--grad-navy2);color:#D9DEEC}
+.fcard.dark b{color:#fff}
+.fcard.dark .ic{background:#fff;color:var(--navy)}
+.fcard.light{left:0;bottom:10%;background:#fff;color:var(--brown)}
+.fcard.light b{color:var(--navy)}
+.fcard.light .ic{background:var(--tint);color:var(--amber-deep)}
+.fcard.light a:hover b{color:var(--amber-deep)}
+
+/* ---------- 5. About ---------- */
+.ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.collage{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+.collage .col-a{display:grid;gap:20px}
+.collage .col-a .frame:first-child{width:80%;justify-self:end;aspect-ratio:1}
+.collage .col-a .frame:last-child{aspect-ratio:1}
+.collage .col-b .frame{aspect-ratio:3/4}
+.ab-txt>p{margin-bottom:22px}
+.checks{list-style:none;margin:0 0 34px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 24px}
+.checks li{display:flex;gap:10px;align-items:flex-start;font-weight:600;color:var(--navy);font-size:15px;line-height:1.5}
+.checks li svg{width:18px;height:18px;color:var(--sage-ink);flex:none;margin-top:2px}
+.checks a{color:var(--navy)}
+.checks a:hover{color:var(--amber-deep)}
+
+/* ---------- 6. Services strip ---------- */
+.svc{padding-top:0}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.svc-it .ico{width:70px;height:70px;color:var(--sage-deep);margin-bottom:22px}
+.svc-it .ico svg{width:70px;height:70px;stroke-width:1.2}
+.svc-it h4{font-size:20px;margin-bottom:10px}
+.svc-it h4 a:hover{color:var(--amber-deep)}
+.svc-it p{font-size:15px;margin-bottom:20px}
+.btn-plus{position:relative;display:inline-flex;align-items:center;height:36px;width:36px;border-radius:36px;border:1px solid rgba(74,67,59,.25);overflow:hidden;transition:all .5s;white-space:nowrap}
+.btn-plus::before{content:"+";position:absolute;left:0;width:34px;text-align:center;font-size:20px;line-height:1;color:var(--navy);transition:all .5s}
+.btn-plus span{padding:0 18px 0 34px;font-size:14px;font-weight:600;opacity:0;transition:opacity .5s;color:#fff}
+.btn-plus:hover{width:140px;background:var(--amber-deep);border-color:var(--amber-deep)}
+.btn-plus:hover::before{color:#fff}
+.btn-plus:hover span{opacity:1}
+
+/* ---------- 7. Team + counters ---------- */
+.team2{background:var(--tint)}
+.tm2-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;margin-top:60px}
+.tm2{position:relative;width:calc((100% - 90px)/4)}
+.tm2 .frame{aspect-ratio:3/4;background:#dfe5d4}
+.tm2 .frame img{object-position:50% 20%}
+.tm2:hover .frame img{transform:scale(1.05)}
+.tm2 .plate{position:absolute;left:16px;right:16px;bottom:16px;padding:12px 10px;border-radius:10px;background:#fff;text-align:center;box-shadow:var(--shadow-1)}
+.tm2 .plate b{display:block;color:var(--navy);font-size:17px;line-height:1.3}
+.tm2 .plate span{display:block;font-size:13.5px;color:var(--brown);line-height:1.4}
+.tm2 .plate a:hover b{color:var(--amber-deep)}
+.cnt-row{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:100px;text-align:center}
+.cnt b{display:block;font-size:clamp(40px,4vw,54px);font-weight:700;letter-spacing:-.03em;color:var(--navy);line-height:1.1}
+.cnt>span{font-size:15px;color:var(--brown)}
+
+/* ---------- 8. Quote carousel (Dentia testimonials) ---------- */
+.quotes{background:var(--tint);padding-top:0}
+.qc{position:relative;margin-top:60px;overflow:hidden;cursor:grab}
+.qc.drag{cursor:grabbing}
+.qc-track{display:flex;gap:25px;transition:transform .25s ease;will-change:transform}
+.qc-card{flex:0 0 calc((100% - 75px)/4);padding:24px 40px 40px;border-radius:var(--r);text-align:center;
+  background:linear-gradient(180deg,#fff 50%,rgba(255,255,255,0) 100%);user-select:none}
+.qc-card .q{display:block;width:34px;height:34px;color:var(--sage-deep);margin-bottom:14px}
+.qc-card .who{width:80px;height:80px;border-radius:50%;margin:0 auto 14px;overflow:hidden;background:#dfe5d4;display:grid;place-items:center;color:var(--navy)}
+.qc-card .who img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.qc-card .who svg{width:34px;height:34px}
+.qc-card h4{font-size:17px;margin-bottom:2px}
+.qc-card small{display:block;font-size:13px;color:var(--sage-ink);font-weight:600;margin-bottom:14px}
+.qc-card p{font-size:15px;line-height:1.75;opacity:.8;margin:0}
+.qc-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+.qc-dots button{width:8px;height:8px;border-radius:50%;background:rgba(74,67,59,.22);transition:all .3s}
+.qc-dots button.on{background:var(--sage-deep);width:22px;border-radius:8px}
+
+/* ---------- 9. Footer (Dentia layout on the old wood footer) ---------- */
+.ft2{position:relative;background:var(--bark);color:#CFC8BC;padding-top:100px;overflow:hidden}
+.ft2::before{content:"";position:absolute;inset:0;background:url(../img/old-site/bg-footer.jpg) repeat;opacity:.35;pointer-events:none}
+.ft2>*{position:relative}
+.ft2-logos{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:50px;margin-bottom:60px;border-bottom:1px solid rgba(255,255,255,.1)}
+.ft2-logos .lg{display:flex;align-items:center;gap:40px;flex-wrap:wrap}
+.ft2-logos img{height:50px;width:auto;opacity:.75;transition:opacity .3s}
+.ft2-logos a:hover img{opacity:1}
+.ft2-logos .top{display:inline-flex;align-items:center;gap:8px;color:#fff;font-weight:600;font-size:14px}
+.ft2-logos .top svg{width:18px;height:18px;color:var(--sage)}
+.ft2-cols{display:grid;grid-template-columns:1.25fr 1fr 1fr 1.1fr;gap:40px}
+.ft2 h5{color:#fff;font-size:18px;margin:0 0 20px}
+.ft2 p{color:#CFC8BC;font-size:15px}
+.ft2 .logo-white{height:46px;margin-bottom:22px}
+.ft2-soc{display:flex;gap:8px}
+.ft2-links{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px}
+.ft2-links a:hover,.ft2-find a:hover,.ft2-ct a:hover{color:var(--sage)}
+.ft2-find{font-size:15px;line-height:1.7}
+.ft2-find a{display:block}
+.ft2-find .map{display:block;width:fit-content;border-radius:8px;overflow:hidden;margin-bottom:14px;border:3px solid rgba(255,255,255,.08)}
+.ft2-find .map img{width:243px;height:auto}
+.ft2-find .docs{margin-bottom:10px;color:#fff}
+.ft2-ct{display:grid;gap:18px;font-size:15px}
+.ft2-ct b{display:flex;align-items:center;gap:8px;color:#fff;font-size:15px;margin-bottom:2px}
+.ft2-ct b svg{width:16px;height:16px;color:var(--sage)}
+.ft2-ct .hrs{display:grid;grid-template-columns:auto 1fr;column-gap:14px}
+.ft2-bar{margin-top:50px;border-top:1px solid rgba(255,255,255,.1);padding:20px 0;font-size:14px}
+.ft2-bar .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.ft2-bar nav{display:flex;gap:24px}
+.ft2-bar a:hover{color:#fff}
+
+.btt{position:fixed;right:20px;bottom:-40px;z-index:999;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--sage-deep);color:#fff;opacity:0;transition:all .5s}
+.btt.show{bottom:20px;opacity:1}
+.btt:hover{transform:scale(1.1)}
+.btt svg{width:20px;height:20px}
+
+/* ---------- 10. Responsive ---------- */
+@media (max-width:1199.98px){
+  .h2-hero{padding-top:120px}
+  .tm2{width:calc((100% - 60px)/3)}
+  .qc-card{flex-basis:calc((100% - 50px)/3)}
+  .ft2-cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:991.98px){
+  .sec{padding:90px 0}
+  .h2-hero .container,.ab-grid{grid-template-columns:1fr}
+  .h2-hero .txt{padding-bottom:20px}
+  .h2-visual{max-width:600px;margin:0 auto;width:100%}
+  .svc-grid,.cnt-row{grid-template-columns:1fr 1fr}
+  .qc-card{flex-basis:calc((100% - 25px)/2)}
+  .btt{display:none}
+}
+@media (max-width:767.98px){
+  .sec{padding:60px 0}
+  .quotes{padding-top:0}
+  .svc{padding-top:0}
+  .v2 .container{padding-inline:20px}
+  .h2-right .btn2{display:none}
+  .tm2{width:calc((100% - 30px)/2)}
+  .tm2 .plate{left:8px;right:8px;bottom:8px;padding:8px}
+  .tm2 .plate b{font-size:15px}
+  .tm2 .plate span{font-size:12px}
+  .checks{grid-template-columns:1fr}
+  .fcard{padding:12px 14px;gap:10px}
+  .fcard .ic{width:40px;height:40px}
+  .fcard b{font-size:14.5px}
+  .fcard span{font-size:12px}
+  .fcard.dark{top:30%}
+  .cnt-row{margin-top:60px;row-gap:30px}
+  .ft2-cols{grid-template-columns:1fr}
+  .ft2-logos img{height:38px}
+}
+@media (max-width:599.98px){
+  .qc-card{flex-basis:100%}
+  .svc-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .js-anim [data-anim]{visibility:visible}
+  .animated{animation:none}
+  .pl-ring{animation:none}
+}
