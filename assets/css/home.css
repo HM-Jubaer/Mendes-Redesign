@@ -1,0 +1,527 @@
+/* =========================================================
+   Mendes Family Dentistry — Home (rework, Oct 2026)
+   Layout + motion ported from the three references
+   (Denox, Dentcure, Smilico) onto the Mendes design system
+   tokens in mendes.css. Every word and image is from the
+   practice's own site.
+   ========================================================= */
+
+/* ---------- 0. Page-level ---------- */
+html,body{overflow-x:clip}
+body{background:#fff}
+figure{margin:0}
+.has-smooth *{scroll-behavior:auto!important}
+h2.sec-title{font-size:var(--fs-h2);line-height:1.06}
+.sec-head{margin-bottom:var(--s-8)}
+.sec-head.center{text-align:center;max-width:760px;margin-inline:auto}
+.sec-head.center .tag{margin-inline:auto}
+.sec-head p{margin:var(--s-4) 0 0;color:var(--slate-500);font-size:var(--fs-lead)}
+
+/* Tagline pill (Denox .site-title-tagline) */
+.tag{
+  display:inline-flex;align-items:center;gap:10px;width:fit-content;
+  padding:3px 16px 3px 3px;border-radius:var(--r-pill);margin-bottom:var(--s-4);
+  background:var(--sky-100);color:var(--navy-700);font-size:14px;font-weight:600;letter-spacing:.01em;
+}
+.tag .ic{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--navy-600);flex:none}
+.tag .ic img{width:18px;height:18px;filter:brightness(0) invert(1)}
+.tag.on-dark{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(20px)}
+.tag.on-dark .ic{background:var(--gold-500)}
+.tag.on-dark .ic img{filter:none}
+.tag.white{background:#fff}
+
+/* Wipe-fill pill button (Denox .theme-btn) */
+.mbtn{
+  --b-bg:var(--navy-600);--b-fg:#fff;--b-fill:var(--blue-500);--b-fg-h:#fff;
+  position:relative;z-index:1;overflow:hidden;isolation:isolate;
+  display:inline-flex;align-items:center;gap:12px;height:54px;padding:0 8px 0 26px;
+  border-radius:var(--r-pill);background:var(--b-bg);color:var(--b-fg);
+  font-weight:600;font-size:15px;white-space:nowrap;transition:color .5s;
+}
+.mbtn::before{content:"";position:absolute;top:0;right:0;bottom:0;width:0;background:var(--b-fill);transition:all .4s ease-in-out;z-index:-1}
+.mbtn:hover::before{right:auto;left:0;width:100%}
+.mbtn:hover{color:var(--b-fg-h)}
+.mbtn .arr{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--navy-600);transform:rotate(-40deg);transition:transform .3s ease-in-out}
+.mbtn .arr svg{width:18px;height:18px}
+.mbtn:hover .arr{transform:rotate(0)}
+.mbtn.gold{--b-bg:var(--gold-500);--b-fg:var(--navy-900);--b-fill:#fff;--b-fg-h:var(--navy-900)}
+.mbtn.gold .arr{background:var(--navy-900);color:#fff}
+.mbtn.white{--b-bg:#fff;--b-fg:var(--navy-700);--b-fill:var(--gold-500);--b-fg-h:var(--navy-900)}
+.mbtn.white .arr{background:var(--navy-600);color:#fff}
+.mbtn.ghost{--b-bg:transparent;--b-fg:#fff;--b-fill:#fff;--b-fg-h:var(--navy-700);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4);padding:0 26px}
+.mbtn.sm{height:46px;padding-left:20px;font-size:14px}
+.mbtn.sm .arr{width:34px;height:34px}
+
+.tel-link{display:inline-flex;align-items:center;gap:12px;font-weight:600}
+.tel-link .ic{width:54px;height:54px;border-radius:30px 0 30px 30px;display:grid;place-items:center;background:var(--gold-500);color:var(--navy-900);flex:none}
+.tel-link .ic svg{width:22px;height:22px}
+.tel-link small{display:block;font-size:13px;font-weight:500;opacity:.75}
+.tel-link b{display:block;font-size:20px;line-height:1.2}
+
+/* Image shine (Denox .ani-img) */
+.shine{position:relative;overflow:hidden}
+.shine::after{content:"";position:absolute;width:200%;height:0;left:50%;top:50%;background:rgba(255,255,255,.3);transform:translate(-50%,-50%) rotate(-45deg);z-index:1;pointer-events:none}
+.shine:hover::after{height:250%;transition:all .6s linear;background:transparent}
+
+/* Image curtain reveal (Denox .reveal) */
+.img-reveal{position:relative;display:block;overflow:hidden}
+.js-motion .img-reveal{visibility:hidden}
+.img-reveal img{width:100%;height:100%;object-fit:cover;transform-origin:right}
+
+/* Fade-up entrances (WOW fadeInUp 20px/1s) */
+.js-motion [data-fade]{opacity:0;transform:translateY(24px)}
+
+/* ---------- 1. Preloader (Denox ripple) ---------- */
+.preloader{position:fixed;inset:0;z-index:9999;background:var(--navy-900);display:grid;place-items:center;transition:opacity .6s,visibility .6s}
+.preloader.done{opacity:0;visibility:hidden}
+.ripple{width:84px;height:84px;position:relative;display:grid;place-items:center}
+.ripple img{width:44px;height:44px;border-radius:50%;position:relative;z-index:1}
+.ripple i{position:absolute;inset:50%;border:3px solid var(--gold-500);border-radius:50%;animation:ripple 1.2s cubic-bezier(0,.2,.8,1) infinite}
+.ripple i:nth-child(2){animation-delay:-.6s}
+@keyframes ripple{0%{inset:50%;opacity:1}100%{inset:0;opacity:0}}
+
+/* ---------- 2. Header (Denox hd-1 + Smilico pill) ---------- */
+.hd{position:absolute;inset:0 0 auto;z-index:60}
+.hd-top{color:#D8E2FA;font-size:14px}
+.hd-top .container{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:52px}
+.hd-top ul{display:flex;align-items:center;gap:26px;list-style:none;margin:0;padding:0}
+.hd-top a{display:inline-flex;align-items:center;gap:8px;transition:color .3s}
+.hd-top a:hover{color:#fff}
+.hd-top svg{width:16px;height:16px;color:var(--gold-500)}
+.hd-social{display:flex;align-items:center;gap:6px}
+.hd-social span{margin-right:6px;color:#8FA3D6}
+.hd-social a{width:30px;height:30px;justify-content:center;border-radius:50%;transition:background .3s}
+.hd-social a:hover{background:rgba(255,255,255,.12)}
+.hd-social svg{color:#fff;width:15px;height:15px}
+
+.nav-wrap{padding:0}
+.nav-pill{
+  display:flex;align-items:center;gap:20px;height:78px;padding:0 14px 0 26px;
+  background:#fff;border-radius:var(--r-pill);box-shadow:0 18px 40px -22px rgba(10,21,51,.55);
+}
+.hd .container{max-width:1400px}
+.nav-pill .logo{flex:none}
+.nav-pill .logo img{height:44px;width:auto}
+.menu{display:flex;align-items:center;justify-content:center;flex:1;gap:0;list-style:none;margin:0;padding:0}
+.menu>li{position:relative}
+.menu>li>a{
+  position:relative;display:inline-flex;align-items:center;gap:2px;padding:27px 9px;white-space:nowrap;
+  font-size:15px;font-weight:600;color:var(--navy-900);transition:color .3s;
+}
+.menu>li>a::before{content:"";position:absolute;left:9px;bottom:20px;height:2.5px;width:0;border-radius:3px;background:var(--gold-500);transition:width .5s ease-in-out}
+.menu>li:hover>a,.menu>li>a.active{color:var(--navy-600)}
+.menu>li:hover>a::before,.menu>li>a.active::before{width:18px}
+.menu>li>a svg{width:14px;height:14px;opacity:.6}
+.dd{
+  position:absolute;left:-6px;top:80%;min-width:248px;margin:0;padding:10px 0;list-style:none;
+  background:var(--navy-700);border-radius:var(--r-md);box-shadow:var(--sh-3);
+  opacity:0;visibility:hidden;transform:rotateX(-75deg);transform-origin:0 0;transition:all .3s ease-in-out;
+}
+.menu>li:hover>.dd,.menu>li:focus-within>.dd{opacity:1;visibility:visible;top:100%;transform:rotateX(0)}
+.dd li+li{border-top:1px dashed rgba(255,255,255,.14)}
+.dd a{position:relative;display:block;padding:9px 18px 9px 24px;font-size:14.5px;font-weight:500;color:#D8E2FA;transition:all .3s ease-in-out}
+.dd a::before{content:"";position:absolute;left:14px;top:50%;width:8px;height:2px;border-radius:2px;background:var(--gold-500);opacity:0;transform:translateY(-50%);transition:all .3s ease-in-out}
+.dd a:hover{padding-left:34px;color:#fff}
+.dd a:hover::before{opacity:1;left:18px}
+.dd.cols-2{display:grid;grid-template-columns:1fr 1fr;min-width:440px}
+.dd.cols-2 li+li{border-top:0}
+.dd.cols-2 li{border-bottom:1px dashed rgba(255,255,255,.14)}
+.nav-right{display:flex;align-items:center;gap:10px;flex:none}
+.nav-call{width:50px;height:50px;border-radius:50%;display:none;place-items:center;background:var(--sky-100);color:var(--navy-600);transition:all .3s}
+.nav-call:hover{background:var(--navy-600);color:#fff}
+.nav-call svg{width:20px;height:20px}
+.nav-toggle{display:none;width:50px;height:50px;border-radius:50%;background:var(--navy-600);place-items:center;flex:none}
+.nav-toggle span{display:grid;gap:5px;width:22px}
+.nav-toggle span i{display:block;height:3px;border-radius:3px;background:#fff}
+.nav-toggle span i:nth-child(2){width:15px}
+
+/* Sticky (Denox: > 50px, slide-down .7s) */
+.nav-wrap.fixed{position:fixed;inset:0 0 auto;z-index:70;background:#fff;box-shadow:0 0 15px rgba(10,21,51,.17);animation:slide-down .7s}
+.nav-wrap.fixed .nav-pill{box-shadow:none;height:76px;padding-left:12px}
+@keyframes slide-down{from{transform:translateY(-100%)}to{transform:none}}
+
+/* Off-canvas mobile menu (Denox offcanvas-start, 300px+) */
+.oc{position:fixed;inset:0;z-index:90;visibility:hidden}
+.oc.open{visibility:visible}
+.oc-bg{position:absolute;inset:0;background:rgba(10,21,51,.55);opacity:0;transition:opacity .3s}
+.oc.open .oc-bg{opacity:1}
+.oc-panel{position:absolute;inset:0 auto 0 0;width:min(340px,88vw);background:#fff;overflow:auto;padding:22px 22px 40px;transform:translateX(-100%);transition:transform .3s ease-in-out}
+.oc.open .oc-panel{transform:none}
+.oc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.oc-top img{height:38px}
+.oc-close{width:38px;height:38px;border-radius:50%;background:var(--sky-100);color:var(--navy-700);display:grid;place-items:center}
+.oc-close svg{width:18px;height:18px}
+.oc-menu{list-style:none;margin:0;padding:0}
+.oc-menu>li{border-bottom:1px solid var(--line)}
+.oc-row{display:flex;align-items:center;justify-content:space-between}
+.oc-row>a{flex:1;padding:14px 0;font-weight:700;color:var(--navy-900)}
+.oc-row button{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:var(--navy-600);transition:transform .3s}
+.oc-row button svg{width:18px;height:18px}
+.oc-menu li.open .oc-row button{transform:rotate(180deg)}
+.oc-sub{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s var(--ease)}
+.oc-sub>ul{overflow:hidden;list-style:none;margin:0;padding:0 0 0 14px}
+.oc-menu li.open .oc-sub{grid-template-rows:1fr}
+.oc-sub a{display:block;padding:8px 0;color:var(--slate-500);font-size:15px}
+.oc-sub ul li:last-child a{padding-bottom:14px}
+.oc-contact{margin-top:26px;display:grid;gap:14px;font-size:15px}
+.oc-contact a{display:flex;gap:10px;align-items:center;color:var(--navy-700);font-weight:600}
+.oc-contact svg{width:18px;height:18px;color:var(--gold-600)}
+
+/* Header width tiers — the old site's 8 menus are long, so the CTA only
+   shows where everything fits inside the pill (measured, ≥10px right inset) */
+@media (min-width:1520px){
+  .hd .container{max-width:1480px}
+}
+@media (max-width:1519.98px){
+  .nav-right .mbtn{display:none}
+  .nav-call{display:grid}
+  .nav-pill{gap:12px;padding-left:20px}
+  .nav-pill .logo img{height:40px}
+  .menu>li>a{padding-inline:8px;font-size:14.5px}
+  .menu>li>a::before{left:8px}
+  .menu>li>a svg{width:13px;height:13px}
+}
+@media (max-width:1279.98px){
+  .menu,.nav-right .mbtn{display:none}
+  .nav-call{display:grid}
+  .nav-toggle{display:grid}
+  .nav-right{margin-left:auto}
+}
+@media (max-width:991px){
+  .nav-pill{justify-content:space-between;height:70px;padding-left:18px}
+  .nav-pill .logo img{height:38px}
+  .hd-top .addr,.hd-social span{display:none}
+}
+@media (max-width:560px){
+  .hd-top .container{justify-content:center}
+  .hd-top .login{display:none}
+  .nav-pill .logo img{height:32px}
+}
+
+/* ---------- 3. Hero ---------- */
+.hero{
+  position:relative;overflow:hidden;color:#C9D6F3;
+  background:radial-gradient(900px 520px at 85% 8%,rgba(91,139,234,.35),transparent 60%),
+             radial-gradient(700px 500px at -5% 90%,rgba(227,163,58,.14),transparent 60%),
+             var(--grad-navy);
+  padding:calc(52px + 78px + clamp(56px,8vw,104px)) 0 0;
+}
+.hero::before{ /* faint tooth-in-circle watermark from the logo mark */
+  content:"";position:absolute;right:-140px;top:120px;width:560px;height:560px;border-radius:50%;
+  background:url(../logo-mark.png) center/contain no-repeat;opacity:.05;filter:brightness(0) invert(1);pointer-events:none;
+}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:end;position:relative}
+.hero h1{color:#fff;font-size:clamp(42px,6vw,80px);line-height:1.02;letter-spacing:-.025em;margin:var(--s-5) 0}
+.hero h1 .hl-serif{color:var(--gold-500)}
+.hero .lead{font-size:clamp(17px,1.5vw,20px);line-height:1.6;max-width:52ch;margin:0 0 var(--s-6)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.hero-card{
+  position:relative;overflow:hidden;max-width:400px;margin-left:auto;padding:32px;
+  border-radius:var(--r-lg);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+}
+.hero-card::before{content:"";position:absolute;right:-90px;bottom:-90px;width:230px;height:230px;background:var(--gold-500);filter:blur(80px);opacity:.45;z-index:-1}
+.hero-card .badge{background:rgba(255,255,255,.12);color:#fff;margin-bottom:18px}
+.hero-card .badge .dot{background:var(--gold-500);box-shadow:0 0 0 4px rgba(227,163,58,.2)}
+.hero-card h3{color:#fff;font-size:22px;line-height:1.3;font-weight:600;margin:0 0 22px}
+.hero-card .tel-link{color:#fff;border-top:1px solid rgba(255,255,255,.12);padding-top:22px;width:100%}
+
+/* Slide banner — the old site's 2000×420 slides at near-native size */
+.hero-band{position:relative;margin-top:clamp(48px,6vw,80px)}
+.slides{position:relative;height:clamp(220px,29vw,420px);border-radius:var(--r-xl) var(--r-xl) 0 0;overflow:hidden;background:var(--navy-800)}
+.slides figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.2s ease}
+.slides figure.on{opacity:1}
+.slides img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 7s linear}
+.slides figure.on img{transform:scale(1)}
+.slides::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,29,69,.0) 55%,rgba(15,29,69,.45));pointer-events:none}
+.slide-dots{position:absolute;left:28px;bottom:24px;z-index:2;display:flex;gap:8px}
+.slide-dots button{width:10px;height:10px;border-radius:10px;background:rgba(255,255,255,.5);transition:all .4s var(--ease)}
+.slide-dots button.on{width:34px;background:var(--gold-500)}
+
+/* Info bar overlapping the band (Dentcure hotline bar) */
+.info-bar{
+  position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);
+  background:#fff;border-radius:0 0 var(--r-xl) var(--r-xl);box-shadow:var(--sh-3);
+}
+.info-bar>div{display:flex;gap:16px;align-items:center;padding:26px 30px}
+.info-bar>div+div{border-left:1px solid var(--line)}
+.info-bar .ic{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:var(--sky-100);color:var(--navy-600);flex:none}
+.info-bar .ic svg{width:22px;height:22px}
+.info-bar small{display:block;font-size:13px;color:var(--slate-500);font-weight:500}
+.info-bar b{display:block;color:var(--navy-900);font-size:16.5px;line-height:1.35}
+.info-bar a:hover b{color:var(--blue-500)}
+.hero-foot{background:linear-gradient(180deg,transparent 50%,#fff 50%)}
+
+/* ---------- 4. Callouts (Denox feature cards) ---------- */
+.callouts{padding:var(--section) 0 0}
+.co-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.co-card{
+  position:relative;z-index:1;overflow:hidden;display:flex;flex-direction:column;padding:30px 26px;
+  border-radius:40px 40px 40px 0;background:var(--sky-50);border:1px solid var(--sky-100);
+  color:var(--slate-500);transition:color .3s ease-in-out;
+}
+.co-card::before{content:"";position:absolute;inset:auto 0 0;height:0;background:var(--grad-navy);transition:height .35s ease-in-out;z-index:-1}
+.co-card:hover::before{height:100%}
+.co-card .num{position:absolute;top:30px;right:30px;font-family:var(--font-display);font-size:22px;color:var(--navy-600);transition:color .3s}
+.co-card .ic{position:relative;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--navy-600);color:#fff;margin-bottom:30px;overflow:hidden}
+.co-card .ic::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--gold-500);transform:scale(0);transition:transform .3s ease-in-out}
+.co-card .ic svg{position:relative;width:26px;height:26px}
+.co-card:hover .ic::before{transform:scale(1)}
+.co-card:hover .ic{color:var(--navy-900)}
+.co-card h3{font-size:22px;line-height:1.2;padding-bottom:22px;margin-bottom:20px;border-bottom:1px solid var(--line);transition:color .3s,border-color .3s}
+.co-card p{margin:0 0 26px;font-size:15px;line-height:1.6;flex:1}
+.co-card .go{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--navy-600);transition:color .3s}
+.co-card .go svg{width:18px;height:18px;transform:rotate(-35deg);transition:transform .5s}
+.co-card:hover{color:#C9D6F3}
+.co-card:hover .num,.co-card:hover h3,.co-card:hover .go{color:#fff}
+.co-card:hover h3{border-color:rgba(255,255,255,.12)}
+.co-card:hover .go svg{transform:rotate(0)}
+
+/* ---------- 5. Welcome (Denox about mosaic + Dentcure stamp) ---------- */
+.welcome{padding:var(--section) 0}
+.wel-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,88px);align-items:center}
+.mosaic{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.mosaic .m1{aspect-ratio:5/7.4;border-radius:220px 220px 0 220px}
+.mosaic .m2{aspect-ratio:5/6.2;border-radius:0 220px 220px 220px}
+.mosaic .m1 img{object-position:47% 50%}
+.mosaic .m2 img{object-position:58% 50%}
+.years{
+  display:flex;align-items:center;gap:16px;margin-bottom:20px;padding:22px 22px 22px 18px;
+  border-radius:220px 220px 0 220px;background:var(--grad-navy);color:#C9D6F3;
+}
+.years b{font-family:var(--font-display);font-weight:400;font-size:clamp(44px,4.4vw,58px);line-height:1;color:#fff}
+.years b sup{font-size:.5em;color:var(--gold-500);top:-.7em}
+.years span{font-size:14px;line-height:1.35;font-weight:600}
+.stamp{position:absolute;left:50%;top:58%;width:136px;height:136px;transform:translate(-50%,-50%);border-radius:50%;background:#fff;box-shadow:var(--sh-3);display:grid;place-items:center;z-index:2}
+.stamp svg{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);animation:spin 20s linear infinite}
+.stamp text{font-size:10px;font-weight:700;fill:var(--navy-600);text-transform:uppercase}
+.stamp img{width:56px;height:56px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.wel-copy .t-lead{color:var(--slate-700);margin:var(--s-5) 0}
+.wel-copy p{color:var(--slate-500)}
+.wel-copy p a{color:var(--navy-600);font-weight:600;border-bottom:1px solid var(--sky-300);transition:border-color .3s}
+.wel-copy p a:hover{border-color:var(--navy-600)}
+.tx-list{list-style:none;margin:var(--s-5) 0 var(--s-6);padding:22px 0;display:grid;gap:12px;border-block:1px solid var(--line)}
+.tx-list li{display:flex;gap:12px;align-items:flex-start;color:var(--navy-900);font-weight:500}
+.tx-list li::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;background:var(--navy-600) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 5l3.5 3.5L11 1.5'/%3E%3C/svg%3E") center/11px no-repeat}
+.tx-list a{color:var(--navy-700);background:linear-gradient(var(--gold-500),var(--gold-500)) 0 100%/0 2px no-repeat;transition:background-size .35s var(--ease)}
+.tx-list a:hover{background-size:100% 2px}
+
+/* ---------- 6. Stats (Denox counter with hairline title) ---------- */
+.stats{padding:0 0 var(--section)}
+.hair-title{position:relative;text-align:center;margin-bottom:56px}
+.hair-title::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:1px solid var(--line)}
+.hair-title h2{position:relative;display:inline-block;background:#fff;padding:0 22px;font-family:var(--font-display);font-weight:400;font-size:clamp(24px,2.4vw,32px);color:var(--navy-700);letter-spacing:0}
+.st-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.st-box{position:relative;padding:0 36px}
+.st-box+.st-box::before{content:"";position:absolute;left:0;top:0;bottom:0;border-left:1px solid var(--line)}
+.st-box .top{display:flex;gap:12px;align-items:center;margin-bottom:56px;font-weight:600;color:var(--navy-900);line-height:1.3;font-size:15px}
+.st-box .top .ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--sky-100);color:var(--navy-600);flex:none}
+.st-box .top .ic svg{width:20px;height:20px}
+.st-box .n{font-family:var(--font-display);font-size:clamp(52px,5vw,72px);line-height:1;color:var(--navy-600)}
+.st-box .n sup{font-size:.42em;color:var(--gold-500);top:-.9em;margin-left:2px}
+
+/* ---------- 7. Services (Denox inset tinted slab, bento) ---------- */
+.inset{padding-inline:12px}
+.services .slab{background:var(--sky-50);border-radius:40px;padding:clamp(56px,7vw,96px) 0}
+.sv-head{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
+.sv-head p{color:var(--slate-500);margin:0 0 24px}
+.sv-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:auto auto;gap:24px}
+.sv-card{
+  position:relative;z-index:1;overflow:hidden;background:#fff;border-radius:40px 40px 40px 0;padding:34px 30px;
+  box-shadow:0 0 40px 5px rgba(15,29,69,.04);transition:transform .35s var(--ease);
+}
+.sv-card:hover{transform:translateY(-4px)}
+.sv-card .num{position:absolute;top:32px;right:34px;font-family:var(--font-display);font-size:22px;color:var(--sky-300)}
+.sv-card .ic{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--sky-100);color:var(--navy-600);margin-bottom:24px;transition:all .35s}
+.sv-card .ic svg{width:26px;height:26px}
+.sv-card:hover .ic{background:var(--navy-600);color:#fff;transform:rotateY(180deg)}
+.sv-card h3{font-size:24px;margin-bottom:18px}
+.sv-card h3 a:hover{color:var(--blue-500)}
+.sv-card ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.sv-card ul a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);color:var(--slate-700);font-weight:500;font-size:15px;transition:all .3s}
+.sv-card ul a svg{width:16px;height:16px;color:var(--sky-300);transition:all .3s}
+.sv-card ul a:hover{color:var(--navy-600);padding-left:6px}
+.sv-card ul a:hover svg{color:var(--navy-600);transform:translateX(2px)}
+.sv-card.big{grid-row:span 2}
+.sv-card.cta{background:var(--grad-navy);color:#C9D6F3;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.sv-card.cta h3{color:#fff;font-family:var(--font-display);font-weight:400;font-size:28px;line-height:1.2;letter-spacing:0}
+.sv-card.cta .tel-link{color:#fff}
+
+/* ---------- 8. Marquee (Denox) ---------- */
+.tx-marquee{background:var(--navy-600);color:#fff;padding:22px 0;margin-top:var(--section)}
+.tx-marquee .marquee-track{gap:38px;animation-duration:60s}
+.tx-marquee span{font-family:var(--font-display);font-size:clamp(24px,2.6vw,36px);letter-spacing:.02em;white-space:nowrap}
+.tx-marquee img{width:30px;height:30px;filter:brightness(0) invert(1);opacity:.7}
+
+/* ---------- 9. Doctors (Dentcure arched pair on navy) ---------- */
+.doctors{background:var(--grad-navy);color:#C9D6F3;padding:var(--section) 0;position:relative;overflow:hidden}
+.doctors::after{content:"";position:absolute;right:-180px;bottom:-200px;width:620px;height:620px;background:url(../logo-mark.png) center/contain no-repeat;filter:brightness(0) invert(1);opacity:.04;pointer-events:none}
+.doc-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,88px);align-items:center;position:relative;z-index:1}
+.arches{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:end}
+.arch{position:relative}
+.arch .frame{aspect-ratio:240/300;max-width:260px;border-radius:200px 200px var(--r-lg) var(--r-lg);overflow:hidden;background:var(--navy-800);border:6px solid rgba(255,255,255,.08)}
+.arch .frame img{width:100%;height:100%;object-fit:cover}
+.arch:nth-child(2){margin-bottom:56px}
+.arch figcaption{margin-top:16px;max-width:260px}
+.arch figcaption b{display:block;color:#fff;font-size:17px}
+.arch figcaption span{font-size:13.5px;color:#8FA3D6}
+.doc-copy h2{color:#fff}
+.doc-copy h2 .hl-serif{color:var(--gold-500)}
+.doc-q{margin:28px 0 0;display:grid;gap:18px}
+.doc-q blockquote{margin:0;padding:22px 24px 22px 26px;border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.doc-q blockquote p{margin:0 0 12px;color:#fff;font-size:17px;line-height:1.55}
+.doc-q cite{font-style:normal;font-size:13.5px;color:#8FA3D6;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.doc-q cite a{color:var(--gold-500);font-weight:600;display:inline-flex;gap:6px;align-items:center}
+.doc-q cite a svg{width:15px;height:15px;transition:transform .3s}
+.doc-q cite a:hover svg{transform:translateX(3px)}
+.doc-copy .mbtn{margin-top:32px}
+
+/* ---------- 10. What sets us apart (Denox process scroll-back) ---------- */
+.apart{padding:var(--section) 0}
+.ap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start}
+.ap-card{position:relative;padding:40px 34px 36px;border-radius:50px 50px 50px 0;background:#fff;border:1px solid var(--line);box-shadow:0 0 40px 5px rgba(15,29,69,.04);transition:border-color .4s}
+.ap-card:hover{border-color:var(--sky-300)}
+.ap-card .step{position:absolute;top:40px;right:34px;padding:2px 14px;border-radius:var(--r-pill);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--navy-700);transition:all .5s}
+.ap-card:hover .step{background:var(--navy-600);border-color:var(--navy-600);color:#fff}
+.ap-card .ic{width:68px;height:68px;border-radius:22px;display:grid;place-items:center;background:var(--gold-100);color:var(--gold-600);margin-bottom:28px}
+.ap-card .ic svg{width:30px;height:30px}
+.ap-card h3{font-size:24px;margin-bottom:14px}
+.ap-card p{margin:0;color:var(--slate-500);font-size:15.5px}
+
+/* ---------- 11. Team (Denox glass name plates) ---------- */
+.team{padding:0 0 var(--section)}
+.tm-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.tm-card{position:relative;border-radius:var(--r-lg);overflow:hidden;background:var(--sky-100)}
+.tm-card .ph{aspect-ratio:199/300}
+.tm-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.tm-card:hover img{transform:scale(1.06)}
+.tm-plate{position:absolute;left:10px;right:10px;bottom:10px;padding:12px 14px;border-radius:var(--r-md);text-align:center;
+  background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.7);transition:transform .4s var(--ease)}
+.tm-plate b{display:block;color:var(--navy-900);font-size:17px}
+.tm-plate span{display:block;font-size:12.5px;color:var(--slate-500);line-height:1.35}
+.tm-card:hover .tm-plate{transform:translateY(-6px)}
+.tm-foot{margin-top:40px;text-align:center}
+
+/* ---------- 12. Location / appointment (Denox quote-wrap inset) ---------- */
+.visit .slab{background:var(--navy-900);border-radius:40px;overflow:hidden;position:relative;color:#C9D6F3}
+.visit .slab::before{content:"";position:absolute;inset:0;background:url(../img/old-site/pic-skyline.jpg) center 70%/cover no-repeat;opacity:.16}
+.visit .slab::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy-900) 30%,rgba(15,29,69,.6))}
+.vi-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);padding:clamp(56px,7vw,96px) 0;align-items:center}
+.vi-copy h2{color:#fff}
+.vi-copy>p{font-size:var(--fs-lead);margin:var(--s-5) 0 var(--s-6)}
+.vi-facts{display:grid;grid-template-columns:1fr 1fr;gap:22px 28px;padding:26px 0;border-block:1px solid rgba(255,255,255,.1);margin-bottom:32px}
+.vi-facts h4{color:#8FA3D6;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.vi-facts p,.vi-facts a{margin:0;color:#fff;font-size:15.5px;line-height:1.6}
+.vi-facts a:hover{color:var(--gold-500)}
+.hours{list-style:none;margin:0;padding:0;font-size:15px}
+.hours li{display:flex;justify-content:space-between;gap:12px;padding:3px 0;color:#fff}
+.hours li span{color:#8FA3D6}
+.vi-btns{display:flex;flex-wrap:wrap;gap:14px}
+.vi-map{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:440px;height:100%;background:var(--navy-800);border:8px solid rgba(255,255,255,.06)}
+.vi-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.85)}
+.vi-pin{position:absolute;left:16px;bottom:16px;z-index:1;display:flex;gap:12px;align-items:center;padding:12px 16px;border-radius:var(--r-md);background:#fff;box-shadow:var(--sh-2);color:var(--navy-900);font-weight:600;font-size:14px}
+.vi-pin svg{width:20px;height:20px;color:var(--coral-500)}
+
+/* ---------- 13. Footer (Denox ft-2 + old-site structure) ---------- */
+.visit{padding-bottom:var(--section)}
+.ft-logos{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:28px 36px;margin-bottom:56px;border-radius:var(--r-lg);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.ft-logos h3{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#8FA3D6;font-weight:700}
+.ft-logos .logos{display:flex;align-items:center;gap:clamp(24px,4vw,56px);flex-wrap:wrap}
+.ft-logos .logos img{height:52px;width:auto;opacity:.65;transition:opacity .21s ease}
+.ft-logos .logos a:hover img{opacity:1}
+.ft-logos .to-top{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:#fff;font-size:14px}
+.ft-logos .to-top svg{width:18px;height:18px;color:var(--gold-500);transition:transform .3s}
+.ft-logos .to-top:hover svg{transform:translateY(-3px)}
+
+.ft{position:relative;overflow:hidden;background:var(--navy-950);color:#AFC0E6;padding-top:64px}
+.ft-strip{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;padding-bottom:48px;margin-bottom:56px;border-bottom:1px solid rgba(255,255,255,.08)}
+.ft-strip .logo img{height:52px}
+.ft-strip .items{display:flex;gap:44px;flex-wrap:wrap}
+.ft-strip .it{display:flex;gap:14px;align-items:center}
+.ft-strip .it .ic{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:var(--navy-600);color:#fff;flex:none}
+.ft-strip .it .ic svg{width:22px;height:22px}
+.ft-strip .it small{display:block;color:#8FA3D6;font-size:13px}
+.ft-strip .it b{display:block;color:#fff;font-weight:600;font-size:16px}
+.ft-strip .it a:hover b{color:var(--gold-500)}
+.ft-cols{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;padding-bottom:64px;position:relative;z-index:1}
+.ft h4{color:#fff;font-size:20px;margin-bottom:24px;padding-bottom:12px;position:relative}
+.ft h4::before{content:"";position:absolute;left:0;bottom:0;width:0;height:3px;border-radius:3px;background:var(--gold-500);transition:width 1s ease}
+.ft h4.drawn::before{width:40px}
+.ft p{margin:0 0 18px;font-size:15px}
+.ft-social{display:flex;gap:10px}
+.ft-social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);color:#fff;transition:all .3s}
+.ft-social a:hover{background:var(--gold-500);border-color:var(--gold-500);color:var(--navy-900)}
+.ft-social svg{width:17px;height:17px}
+.ft-links{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+.ft-links a{display:inline-flex;align-items:center;gap:8px;margin-left:-22px;transition:all .5s;font-size:15px}
+.ft-links a svg{width:14px;height:14px;color:var(--gold-500);opacity:0;transition:opacity .5s}
+.ft-links a:hover{margin-left:0;color:#fff}
+.ft-links a:hover svg{opacity:1}
+.ft-map{display:block;width:fit-content;border-radius:var(--r-sm);overflow:hidden;margin-bottom:18px;border:3px solid rgba(255,255,255,.08)}
+.ft-map img{width:243px;height:auto}
+.ft-find{font-size:15px;line-height:1.7}
+.ft-find a{display:block}
+.ft-find a:hover{color:#fff}
+.ft-find .docs{margin-bottom:10px}
+.ft .hours li{color:#AFC0E6}
+.ft .hours li span{color:#fff}
+.ft-word{position:relative;height:clamp(70px,14vw,200px);overflow:hidden;pointer-events:none;user-select:none}
+.ft-word span{position:absolute;left:50%;top:0;transform:translateX(-50%);font-family:var(--font-display);font-size:clamp(110px,22vw,320px);line-height:.8;letter-spacing:.04em;color:rgba(255,255,255,.05);white-space:nowrap}
+.ft-bar{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.08);padding:24px 0;font-size:14px}
+.ft-bar .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.ft-bar a:hover{color:#fff}
+
+/* Scroll-to-top (Denox) */
+.scroll-top{position:fixed;right:24px;bottom:-20px;z-index:80;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:var(--gold-500);color:var(--navy-900);box-shadow:0 0 15px rgba(10,21,51,.25);opacity:0;visibility:hidden;transform:rotate(-40deg);transition:all .5s ease-in-out}
+.scroll-top svg{width:22px;height:22px}
+.scroll-top.on{opacity:1;visibility:visible;bottom:24px}
+.scroll-top:hover{transform:rotate(0)}
+
+/* ---------- 14. Responsive ---------- */
+@media (max-width:1199px){
+  .co-grid{grid-template-columns:repeat(2,1fr)}
+  .tm-grid{grid-template-columns:repeat(3,1fr)}
+  .ft-cols{grid-template-columns:1fr 1fr}
+  .dd.cols-2{min-width:400px}
+}
+@media (max-width:991px){
+  .hero-grid,.wel-grid,.doc-grid,.vi-grid,.sv-head{grid-template-columns:1fr}
+  .hero-card{margin-left:0}
+  .info-bar{grid-template-columns:1fr}
+  .info-bar>div+div{border-left:0;border-top:1px solid var(--line)}
+  .sv-grid{grid-template-columns:1fr 1fr}
+  .sv-card.big{grid-column:span 2;grid-row:auto}
+  .st-grid{grid-template-columns:1fr 1fr;row-gap:44px}
+  .st-box:nth-child(3)::before{display:none}
+  .st-box .top{margin-bottom:28px}
+  .ap-grid{grid-template-columns:1fr}
+  .mosaic{max-width:560px}
+  .arches{max-width:560px}
+  .vi-map{min-height:360px}
+}
+@media (max-width:640px){
+  .co-grid,.sv-grid{grid-template-columns:1fr}
+  .sv-card.big{grid-column:auto}
+  .sv-card.big ul{grid-template-columns:1fr}
+  .tm-grid{grid-template-columns:1fr 1fr}
+  .vi-facts{grid-template-columns:1fr}
+  .ft-cols{grid-template-columns:1fr}
+  .st-box{padding:0 18px}
+  .st-box:first-child,.st-box:nth-child(3){padding-left:0}
+  .stamp{width:108px;height:108px}
+  .stamp img{width:44px;height:44px}
+  .stamp text{font-size:13px}
+  .hero-cta .mbtn{width:100%;justify-content:space-between}
+  .slides{border-radius:var(--r-lg) var(--r-lg) 0 0}
+  .info-bar{border-radius:0 0 var(--r-lg) var(--r-lg)}
+  .inset .slab>.container{padding-inline:22px}
+  .years{gap:10px;padding:16px 14px}
+  .years span{font-size:12px}
+  .ft-logos{padding:22px}
+  .ft-logos .logos img{height:40px}
+}
+@media (prefers-reduced-motion:reduce){
+  .stamp svg,.tx-marquee .marquee-track{animation:none}
+  .slides img{transition:none;transform:none}
+}
