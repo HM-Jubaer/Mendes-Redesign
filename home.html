@@ -271,7 +271,7 @@
           <section class="hero">
             <div class="container">
               <div class="hero-grid">
-                <div>
+                <div class="hero-copy">
                   <span class="tag on-dark" data-fade
                     ><span class="ic"
                       ><img src="assets/logo-mark.png" alt="" /></span
@@ -295,19 +295,30 @@
                     >
                   </div>
                 </div>
-                <aside class="hero-card" data-fade data-delay=".3">
-                  <span class="badge"
-                    ><span class="dot"></span>24/7 emergency coverage</span
+                <div class="hero-visual" data-fade data-delay=".3">
+                  <span class="hero-ring" aria-hidden="true"></span>
+                  <img
+                    class="hero-portrait"
+                    src="assets/img/hero-doctors.png"
+                    alt="Dr. Paul M. Mendes and his father, Dr. Charles H. Mendes"
+                    width="844"
+                    height="1024"
+                    fetchpriority="high"
+                  />
+                  <span class="hero-names"
+                    ><b>Drs. Paul &amp; Charles Mendes</b
+                    ><small>Father &amp; son, caring for St. Paul families</small></span
                   >
-                  <h3>
-                    Please contact our St. Paul dental office to schedule an
-                    appointment today!
-                  </h3>
-                  <a class="tel-link" href="tel:651-699-0404"
-                    ><span class="ic"><i data-lucide="phone-call"></i></span
-                    ><span><small>Call us</small><b>(651) 699-0404</b></span></a
-                  >
-                </aside>
+                  <aside class="hero-card">
+                    <span class="badge"
+                      ><span class="dot"></span>24/7 emergency coverage</span
+                    >
+                    <a class="tel-link" href="tel:651-699-0404"
+                      ><span class="ic"><i data-lucide="phone-call"></i></span
+                      ><span><small>Call us</small><b>(651) 699-0404</b></span></a
+                    >
+                  </aside>
+                </div>
               </div>
             </div>
 
@@ -468,7 +479,7 @@
                 <div>
                   <figure class="m1 img-reveal shine">
                     <img
-                      src="assets/img/old-site/meet-dr-paul-m-mendes.jpg"
+                      src="assets/img/old-site/slide1.jpg"
                       alt="A family smiling together"
                       loading="lazy"
                     />
@@ -481,7 +492,7 @@
                   </div>
                   <figure class="m2 img-reveal shine">
                     <img
-                      src="assets/img/old-site/meet-dr-charles-h-mendes.jpg"
+                      src="assets/img/old-site/pic-skyline.jpg"
                       alt="The Saint Paul skyline"
                       loading="lazy"
                     />
@@ -616,7 +627,88 @@
             </div>
           </section>
 
-          <!-- ============ 5. SERVICES (main-menu treatment groups) ============ -->
+          <!-- ============ 5. DOCTORS ============ -->
+          <section class="doctors">
+            <div class="container doc-grid">
+              <div class="arches">
+                <figure class="arch" data-fade>
+                  <div class="frame img-reveal">
+                    <img
+                      src="assets/img/old-site/meet-dr-charles-h-mendes.jpg"
+                      alt="Dr. Charles H. Mendes"
+                      width="240"
+                      height="300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption>
+                    <b>Dr. Charles H. Mendes, DDS</b
+                    ><span
+                      >Doctorate of Dental Surgery – Creighton University School
+                      of Dentistry, 1973</span
+                    >
+                  </figcaption>
+                </figure>
+                <figure class="arch" data-fade data-delay=".2">
+                  <div class="frame img-reveal">
+                    <img
+                      src="assets/img/old-site/meet-dr-paul-m-mendes.jpg"
+                      alt="Dr. Paul M. Mendes"
+                      width="240"
+                      height="300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption>
+                    <b>Dr. Paul M. Mendes, DDS</b
+                    ><span
+                      >Doctorate of Dental Surgery – Creighton University School
+                      of Dentistry, 2006</span
+                    >
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="doc-copy">
+                <span class="tag on-dark" data-fade
+                  ><span class="ic"
+                    ><img src="assets/logo-mark.png" alt="" /></span
+                  >Meet The Doctors</span
+                >
+                <h2 class="sec-title split">
+                  Drs. Charles and <span class="hl-serif">Paul Mendes</span>
+                </h2>
+                <div class="doc-q">
+                  <blockquote data-fade>
+                    <p>
+                      “I have seen four generations of patients and have given
+                      them my all. My motto has always been ‘Teeth for a
+                      Lifetime,’ and please remember you do not get a third
+                      set.”
+                    </p>
+                    <cite
+                      >Dr. Charles H. Mendes
+                      <a href="/meet-dr-charles-h-mendes"
+                        >Meet Dr. Charles <i data-lucide="arrow-right"></i></a
+                    ></cite>
+                  </blockquote>
+                  <blockquote data-fade data-delay=".15">
+                    <p>
+                      “My greatest passion in dentistry is to help my patients
+                      keep their teeth for life … being able to work with my dad
+                      is the icing on the cake!”
+                    </p>
+                    <cite
+                      >Dr. Paul M. Mendes
+                      <a href="/meet-dr-paul-m-mendes"
+                        >Meet Dr. Paul <i data-lucide="arrow-right"></i></a
+                    ></cite>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ============ 6. SERVICES (main-menu treatment groups) ============ -->
           <section class="services inset">
             <div class="slab">
               <div class="container">
@@ -802,7 +894,7 @@
             </div>
           </section>
 
-          <!-- ============ 6. MARQUEE ============ -->
+          <!-- ============ 7. MARQUEE ============ -->
           <div class="tx-marquee" aria-hidden="true">
             <div class="marquee">
               <div class="marquee-track">
@@ -836,87 +928,6 @@
               </div>
             </div>
           </div>
-
-          <!-- ============ 7. DOCTORS ============ -->
-          <section class="doctors">
-            <div class="container doc-grid">
-              <div class="arches">
-                <figure class="arch" data-fade>
-                  <div class="frame img-reveal">
-                    <img
-                      src="assets/img/old-site/meet-dr-charles-h-mendes.jpg"
-                      alt="Dr. Charles H. Mendes"
-                      width="240"
-                      height="300"
-                      loading="lazy"
-                    />
-                  </div>
-                  <figcaption>
-                    <b>Dr. Charles H. Mendes, DDS</b
-                    ><span
-                      >Doctorate of Dental Surgery – Creighton University School
-                      of Dentistry, 1973</span
-                    >
-                  </figcaption>
-                </figure>
-                <figure class="arch" data-fade data-delay=".2">
-                  <div class="frame img-reveal">
-                    <img
-                      src="assets/img/old-site/meet-dr-paul-m-mendes.jpg"
-                      alt="Dr. Paul M. Mendes"
-                      width="240"
-                      height="300"
-                      loading="lazy"
-                    />
-                  </div>
-                  <figcaption>
-                    <b>Dr. Paul M. Mendes, DDS</b
-                    ><span
-                      >Doctorate of Dental Surgery – Creighton University School
-                      of Dentistry, 2006</span
-                    >
-                  </figcaption>
-                </figure>
-              </div>
-              <div class="doc-copy">
-                <span class="tag on-dark" data-fade
-                  ><span class="ic"
-                    ><img src="assets/logo-mark.png" alt="" /></span
-                  >Meet The Doctors</span
-                >
-                <h2 class="sec-title split">
-                  Drs. Charles and <span class="hl-serif">Paul Mendes</span>
-                </h2>
-                <div class="doc-q">
-                  <blockquote data-fade>
-                    <p>
-                      “I have seen four generations of patients and have given
-                      them my all. My motto has always been ‘Teeth for a
-                      Lifetime,’ and please remember you do not get a third
-                      set.”
-                    </p>
-                    <cite
-                      >Dr. Charles H. Mendes
-                      <a href="/meet-dr-charles-h-mendes"
-                        >Meet Dr. Charles <i data-lucide="arrow-right"></i></a
-                    ></cite>
-                  </blockquote>
-                  <blockquote data-fade data-delay=".15">
-                    <p>
-                      “My greatest passion in dentistry is to help my patients
-                      keep their teeth for life … being able to work with my dad
-                      is the icing on the cake!”
-                    </p>
-                    <cite
-                      >Dr. Paul M. Mendes
-                      <a href="/meet-dr-paul-m-mendes"
-                        >Meet Dr. Paul <i data-lucide="arrow-right"></i></a
-                    ></cite>
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-          </section>
 
           <!-- ============ 8. WHAT SETS US APART ============ -->
           <section class="apart" id="apart">

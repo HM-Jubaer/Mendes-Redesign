@@ -210,24 +210,34 @@ h2.sec-title{font-size:var(--fs-h2);line-height:1.06}
   content:"";position:absolute;right:-140px;top:120px;width:560px;height:560px;border-radius:50%;
   background:url(../logo-mark.png) center/contain no-repeat;opacity:.05;filter:brightness(0) invert(1);pointer-events:none;
 }
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:end;position:relative}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:end;position:relative}
+.hero-copy{padding-bottom:clamp(48px,6vw,96px)}
 .hero h1{color:#fff;font-size:clamp(42px,6vw,80px);line-height:1.02;letter-spacing:-.025em;margin:var(--s-5) 0}
 .hero h1 .hl-serif{color:var(--gold-500)}
 .hero .lead{font-size:clamp(17px,1.5vw,20px);line-height:1.6;max-width:52ch;margin:0 0 var(--s-6)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+/* Father-and-son portrait, standing on the slide band */
+.hero-visual{position:relative;max-width:600px;width:100%;margin-left:auto;display:flex;justify-content:center}
+.hero-ring{position:absolute;left:50%;bottom:6%;width:92%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;
+  background:radial-gradient(circle at 50% 40%,rgba(91,139,234,.45),rgba(91,139,234,.08) 62%,transparent 70%);
+  border:1px solid rgba(255,255,255,.14);box-shadow:0 0 0 22px rgba(255,255,255,.03)}
+.hero-ring::after{content:"";position:absolute;right:4%;top:12%;width:22%;aspect-ratio:1;border-radius:50%;background:var(--gold-500);filter:blur(60px);opacity:.5}
+.hero-portrait{position:relative;display:block;width:100%;height:auto;filter:drop-shadow(0 30px 40px rgba(6,14,38,.45))}
+.hero-names{position:absolute;right:-48px;top:6%;z-index:2;padding:12px 18px;border-radius:16px;background:#fff;box-shadow:var(--sh-3);line-height:1.25}
+.hero-names b{display:block;color:var(--navy-900);font-size:15px}
+.hero-names small{display:block;color:var(--slate-500);font-size:12.5px}
 .hero-card{
-  position:relative;overflow:hidden;max-width:400px;margin-left:auto;padding:32px;
-  border-radius:var(--r-lg);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:2;width:fit-content;white-space:nowrap;overflow:hidden;padding:16px 20px;
+  border-radius:var(--r-lg);background:rgba(15,29,69,.55);border:1px solid rgba(255,255,255,.18);
   -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
 }
-.hero-card::before{content:"";position:absolute;right:-90px;bottom:-90px;width:230px;height:230px;background:var(--gold-500);filter:blur(80px);opacity:.45;z-index:-1}
-.hero-card .badge{background:rgba(255,255,255,.12);color:#fff;margin-bottom:18px}
+.hero-card::before{content:"";position:absolute;right:-90px;bottom:-90px;width:200px;height:200px;background:var(--gold-500);filter:blur(80px);opacity:.4;z-index:-1}
+.hero-card .badge{display:flex;width:fit-content;background:rgba(255,255,255,.12);color:#fff;margin-bottom:14px}
 .hero-card .badge .dot{background:var(--gold-500);box-shadow:0 0 0 4px rgba(227,163,58,.2)}
-.hero-card h3{color:#fff;font-size:22px;line-height:1.3;font-weight:600;margin:0 0 22px}
-.hero-card .tel-link{color:#fff;border-top:1px solid rgba(255,255,255,.12);padding-top:22px;width:100%}
+.hero-card .tel-link{display:flex;color:#fff;border-top:1px solid rgba(255,255,255,.12);padding-top:14px;width:100%}
 
 /* Slide banner — the old site's 2000×420 slides at near-native size */
-.hero-band{position:relative;margin-top:clamp(48px,6vw,80px)}
+.hero-band{position:relative}
 .slides{position:relative;height:clamp(220px,29vw,420px);border-radius:var(--r-xl) var(--r-xl) 0 0;overflow:hidden;background:var(--navy-800)}
 .slides figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.2s ease}
 .slides figure.on{opacity:1}
@@ -323,6 +333,7 @@ h2.sec-title{font-size:var(--fs-h2);line-height:1.06}
 
 /* ---------- 7. Services (Denox inset tinted slab, bento) ---------- */
 .inset{padding-inline:12px}
+.doctors + .services{padding-top:12px}
 .services .slab{background:var(--sky-50);border-radius:40px;padding:clamp(56px,7vw,96px) 0}
 .sv-head{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
 .sv-head p{color:var(--slate-500);margin:0 0 24px}
@@ -379,7 +390,7 @@ h2.sec-title{font-size:var(--fs-h2);line-height:1.06}
 
 /* ---------- 10. What sets us apart (Denox process scroll-back) ---------- */
 .apart{padding:var(--section) 0}
-.ap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start}
+.ap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch}
 .ap-card{position:relative;padding:40px 34px 36px;border-radius:50px 50px 50px 0;background:#fff;border:1px solid var(--line);box-shadow:0 0 40px 5px rgba(15,29,69,.04);transition:border-color .4s}
 .ap-card:hover{border-color:var(--sky-300)}
 .ap-card .step{position:absolute;top:40px;right:34px;padding:2px 14px;border-radius:var(--r-pill);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--navy-700);transition:all .5s}
@@ -487,7 +498,9 @@ h2.sec-title{font-size:var(--fs-h2);line-height:1.06}
 }
 @media (max-width:991px){
   .hero-grid,.wel-grid,.doc-grid,.vi-grid,.sv-head{grid-template-columns:1fr}
-  .hero-card{margin-left:0}
+  .hero-copy{padding-bottom:0}
+  .hero-visual{max-width:440px;margin:0 auto}
+  .hero-names{right:-12px}
   .info-bar{grid-template-columns:1fr}
   .info-bar>div+div{border-left:0;border-top:1px solid var(--line)}
   .sv-grid{grid-template-columns:1fr 1fr}
@@ -513,6 +526,8 @@ h2.sec-title{font-size:var(--fs-h2);line-height:1.06}
   .stamp img{width:44px;height:44px}
   .stamp text{font-size:13px}
   .hero-cta .mbtn{width:100%;justify-content:space-between}
+  .hero-card{bottom:12px;padding:14px 16px}
+  .hero-names{right:0;top:8%;padding:10px 14px}
   .slides{border-radius:var(--r-lg) var(--r-lg) 0 0}
   .info-bar{border-radius:0 0 var(--r-lg) var(--r-lg)}
   .inset .slab>.container{padding-inline:22px}
