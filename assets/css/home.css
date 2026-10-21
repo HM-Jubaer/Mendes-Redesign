@@ -501,6 +501,7 @@ h2.sec-title{font-size:var(--fs-h2);line-height:1.06}
   .hero-copy{padding-bottom:0}
   .hero-visual{max-width:440px;margin:0 auto}
   .hero-names{right:-12px}
+  .hero-foot{background:#fff;padding-top:32px}
   .info-bar{grid-template-columns:1fr}
   .info-bar>div+div{border-left:0;border-top:1px solid var(--line)}
   .sv-grid{grid-template-columns:1fr 1fr}

@@ -302,6 +302,8 @@ body.v2{background:#fff;color:var(--brown);line-height:1.8}
   .h2-hero .txt{padding-bottom:20px}
   .h2-visual{max-width:600px;margin:0 auto;width:100%}
   .svc-grid,.cnt-row{grid-template-columns:1fr 1fr}
+  .svc-grid{gap:20px}
+  .svc-it{padding:28px 24px;background:var(--cream);border:1px solid var(--line2);border-radius:var(--r)}
   .qc-card{flex-basis:calc((100% - 25px)/2)}
   .btt{display:none}
 }
@@ -311,6 +313,10 @@ body.v2{background:#fff;color:var(--brown);line-height:1.8}
   .svc{padding-top:0}
   .v2 .container{padding-inline:20px}
   .h2-right .btn2{display:none}
+  .affil{gap:14px 16px;flex-wrap:wrap}
+  .affil small{flex-basis:100%}
+  .affil a{flex:1 1 0;min-width:0}
+  .affil img{width:100%;height:auto;max-height:32px;object-fit:contain;object-position:left center}
   .tm2{width:calc((100% - 30px)/2)}
   .tm2 .plate{left:8px;right:8px;bottom:8px;padding:8px}
   .tm2 .plate b{font-size:15px}
