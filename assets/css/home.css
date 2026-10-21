@@ -502,7 +502,8 @@ h2.sec-title{font-size:var(--fs-h2);line-height:1.06}
   .hero-visual{max-width:440px;margin:0 auto}
   .hero-names{right:-12px}
   .hero-foot{background:#fff;padding-top:32px}
-  .info-bar{grid-template-columns:1fr}
+  .callouts{position:relative;margin-top:-2px;background:#fff}
+  .info-bar{grid-template-columns:1fr;border:1px solid var(--line);border-top:0;box-shadow:0 14px 24px -18px rgba(15,29,69,.18)}
   .info-bar>div+div{border-left:0;border-top:1px solid var(--line)}
   .sv-grid{grid-template-columns:1fr 1fr}
   .sv-card.big{grid-column:span 2;grid-row:auto}
