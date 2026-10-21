@@ -329,7 +329,9 @@ body.v2{background:#fff;color:var(--brown);line-height:1.8}
   .fcard.dark{top:30%}
   .cnt-row{margin-top:60px;row-gap:30px}
   .ft2-cols{grid-template-columns:1fr}
-  .ft2-logos img{height:38px}
+  .ft2-logos .lg{flex-basis:100%;flex-wrap:nowrap;gap:16px}
+  .ft2-logos .lg a{flex:1 1 0;min-width:0}
+  .ft2-logos img{width:100%;height:auto;max-height:42px;object-fit:contain}
 }
 @media (max-width:599.98px){
   .qc-card{flex-basis:100%}

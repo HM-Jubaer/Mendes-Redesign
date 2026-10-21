@@ -503,6 +503,9 @@ h2.sec-title{font-size:var(--fs-h2);line-height:1.06}
   .hero-names{right:-12px}
   .hero-foot{background:#fff;padding:32px 0 30px}
   .callouts{position:relative;margin-top:-2px;background:#fff}
+  .ft-logos .logos{flex-basis:100%;flex-wrap:nowrap}
+  .ft-logos .logos a{flex:1 1 0;min-width:0}
+  .ft-logos .logos img{width:100%;height:auto;max-height:52px;object-fit:contain}
   .info-bar{grid-template-columns:1fr;border:1px solid var(--line);border-top:0;box-shadow:0 14px 24px -18px rgba(15,29,69,.18)}
   .info-bar>div+div{border-left:0;border-top:1px solid var(--line)}
   .sv-grid{grid-template-columns:1fr 1fr}
@@ -536,7 +539,7 @@ h2.sec-title{font-size:var(--fs-h2);line-height:1.06}
   .years{gap:10px;padding:16px 14px}
   .years span{font-size:12px}
   .ft-logos{padding:22px}
-  .ft-logos .logos img{height:40px}
+  .ft-logos .logos{gap:16px}
 }
 @media (prefers-reduced-motion:reduce){
   .stamp svg,.tx-marquee .marquee-track{animation:none}
