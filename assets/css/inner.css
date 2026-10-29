@@ -49,6 +49,8 @@
 .subnav a{display:inline-flex;align-items:center;padding:12px 20px;border-radius:var(--r-pill);font-size:15px;font-weight:600;color:var(--navy-900);white-space:nowrap;transition:background .3s,color .3s}
 .subnav a:hover{background:var(--sky-50);color:var(--navy-600)}
 .subnav a[aria-current]{background:var(--navy-600);color:#fff}
+.subnav.many{flex-wrap:wrap;border-radius:var(--r-lg)}
+.subnav.many a{padding:10px 16px;font-size:14.5px}
 .dd a[aria-current]{color:#fff}
 .dd a[aria-current]::before{opacity:1}
 
@@ -311,6 +313,10 @@
 .tx-main .panel,.tx-main .pull{margin:var(--s-6) 0}
 .tx-main .panel>p:last-child{margin-bottom:0}
 .tx-main .panel .chk{margin:20px 0 0}
+.tx-main .panel h3{font-size:18px;line-height:1.4;margin:0 0 4px}
+.tx-main .opt-grid+.panel{margin-top:var(--s-6)}
+.tx-main .panel+.panel{margin-top:20px}
+.steps3 b a{border-bottom:1px solid var(--sky-300)}
 .tx-fig{margin:var(--s-6) 0;border-radius:40px 40px 40px 0;overflow:hidden;background:var(--sky-50);border:1px solid var(--sky-100)}
 .tx-fig img{width:100%;height:auto}
 .tx-side{display:grid;gap:24px}
@@ -359,7 +365,7 @@
 
 /* ---------- 13. Responsive ---------- */
 @media (max-width:1199px){
-  .subnav{justify-content:flex-start;overflow-x:auto;scrollbar-width:none;border-radius:var(--r-lg)}
+  .subnav,.subnav.many{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;border-radius:var(--r-lg)}
   .subnav::-webkit-scrollbar{display:none}
 }
 @media (max-width:991px){
