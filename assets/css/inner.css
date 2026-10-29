@@ -300,7 +300,35 @@
 .bl-card .bl-body p{flex:1}
 .bl-more{margin-top:48px;text-align:center}
 
-/* ---------- 12. Responsive ---------- */
+/* ---------- 12. Treatment pages ---------- */
+.tx-layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(40px,6vw,80px);align-items:start}
+.tx-main .tx-lead{margin:var(--s-5) 0 0;color:var(--navy-900);font-size:clamp(18px,1.6vw,21px);line-height:1.6;font-weight:500}
+.tx-main h2.sec-title{margin:0}
+.tx-main>h2:not(.sec-title){margin:var(--s-8) 0 var(--s-5)}
+.tx-main h3{font-size:22px;margin:0 0 10px}
+.tx-main .chk{margin:var(--s-5) 0}
+.tx-main .chk li{font-weight:500}
+.tx-main .panel,.tx-main .pull{margin:var(--s-6) 0}
+.tx-main .panel p:last-child{margin-bottom:0}
+.tx-fig{margin:var(--s-6) 0;border-radius:40px 40px 40px 0;overflow:hidden;background:var(--sky-50);border:1px solid var(--sky-100)}
+.tx-fig img{width:100%;height:auto}
+.tx-side{display:grid;gap:24px}
+.tx-side .panel-navy .tel-link{color:#fff;margin:6px 0 22px}
+.svc-card{padding:28px 28px 18px;border-radius:40px 40px 40px 0;background:#fff;border:1px solid var(--line);box-shadow:0 0 40px 5px rgba(15,29,69,.04)}
+.svc-card h3{font-size:22px;margin-bottom:12px}
+.svc-g{padding:14px 0;border-top:1px solid var(--line)}
+.svc-l{display:flex;align-items:center;gap:10px;margin-bottom:6px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-600)}
+.svc-l svg{width:16px;height:16px;color:var(--gold-600)}
+.svc-g ul{list-style:none;margin:0;padding:0}
+.svc-g a{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 0;font-size:15px;font-weight:500;color:var(--slate-700);transition:color .3s,padding .3s}
+.svc-g a svg{width:15px;height:15px;color:var(--sky-300);transition:color .3s}
+.svc-g a:hover{color:var(--navy-600);padding-left:6px}
+.svc-g a[aria-current]{color:var(--navy-600);font-weight:700}
+.svc-g a[aria-current] svg{color:var(--gold-500)}
+.rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rel-grid .co-card p{margin-bottom:26px}
+
+/* ---------- 13. Responsive ---------- */
 @media (max-width:1199px){
   .subnav{justify-content:flex-start;overflow-x:auto;scrollbar-width:none;border-radius:var(--r-lg)}
   .subnav::-webkit-scrollbar{display:none}
@@ -312,7 +340,9 @@
   .dp-side{max-width:440px}
   .dp-next{grid-template-columns:auto 1fr}
   .dp-next .mbtn{grid-column:1/-1;justify-self:start}
-  .intro-2,.duo,.ap-grid.two,.tx-panel,.faq-grid,.form-grid,.bl-feat{grid-template-columns:1fr}
+  .intro-2,.duo,.ap-grid.two,.tx-panel,.faq-grid,.form-grid,.bl-feat,.tx-layout{grid-template-columns:1fr}
+  .rel-grid{grid-template-columns:1fr 1fr}
+  .tx-side{grid-template-columns:1fr 1fr;align-items:start}
   .bl-feat{padding:16px 16px 32px}
   .bl-feat .bl-body{padding:0 12px}
   .bl-grid{grid-template-columns:1fr 1fr}
@@ -329,7 +359,7 @@
   .pull{padding:24px 22px 24px 24px}
   .dp-next{grid-template-columns:1fr;padding:24px}
   .ph-card{max-width:none}
-  .doc-pair,.ba-grid,.tx-links,.form,.bl-grid{grid-template-columns:1fr}
+  .doc-pair,.ba-grid,.tx-links,.form,.bl-grid,.rel-grid,.tx-side{grid-template-columns:1fr}
   .form-foot .mbtn{width:100%;justify-content:space-between}
   .faq-list .acc-a>div{padding:0 0 0 44px}
   .faq-list .acc-q{font-size:17px}
