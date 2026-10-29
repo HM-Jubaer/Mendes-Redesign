@@ -351,6 +351,7 @@
 .tx-intro{display:grid;grid-template-columns:1fr 220px;gap:32px;align-items:center;margin-bottom:var(--s-5)}
 .tx-pic{margin:var(--s-5) 0 0;padding:10px;border-radius:40px 40px 40px 0;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 0 40px 5px rgba(15,29,69,.05)}
 .tx-pic img{width:100%;height:auto;border-radius:30px 30px 30px 0}
+.tx-intro .tx-lead{font-size:17.5px;line-height:1.65}
 .steps3{list-style:none;margin:var(--s-5) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:none}
 .steps3 li{position:relative;padding:20px 20px 22px;border-radius:var(--r-lg) var(--r-lg) var(--r-lg) 0;background:var(--sky-50);border:1px solid var(--sky-100)}
 .steps3 li+li::before{content:"";position:absolute;left:-17px;top:50%;width:16px;border-top:2px dashed var(--sky-300)}
@@ -360,6 +361,8 @@
 .avoid li{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:var(--r-pill);background:#fff;border:1px solid var(--sky-100);color:var(--navy-800);font-weight:600;font-size:14.5px}
 .avoid svg{width:17px;height:17px;color:var(--coral-500)}
 .avoid.mats svg{color:var(--gold-600)}
+.avoid li a{display:inline-flex;align-items:center;gap:8px;transition:color .3s}
+.avoid li a:hover{color:var(--blue-500)}
 .steps3.icons .n svg{width:26px;height:26px;color:var(--gold-600)}
 .steps3.icons li+li::before{display:none}
 
