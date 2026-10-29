@@ -373,7 +373,26 @@
 .steps3.icons .n svg{width:26px;height:26px;color:var(--gold-600)}
 .steps3.icons li+li::before{display:none}
 
-/* ---------- 13. Responsive ---------- */
+/* ---------- 13. Common procedures ---------- */
+.cp-topics{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.cp-topics a{display:inline-flex;padding:8px 16px;border-radius:var(--r-pill);background:var(--sky-50);border:1px solid var(--sky-100);color:var(--navy-800);font-weight:600;font-size:14.5px;transition:all .3s}
+.cp-topics a:hover{background:var(--navy-600);border-color:var(--navy-600);color:#fff}
+.cp-list{display:grid;gap:24px;margin-top:var(--s-6)}
+.cp-item{padding:30px clamp(22px,3vw,36px) 22px;border-radius:40px 40px 40px 0;background:#fff;border:1px solid var(--line);box-shadow:0 0 40px 5px rgba(15,29,69,.04);scroll-margin-top:110px}
+.cp-head{display:flex;align-items:baseline;gap:14px;margin-bottom:16px}
+.cp-head .num{font-family:var(--font-display);font-size:22px;color:var(--sky-300)}
+.tx-main .cp-head h2{margin:0;font-size:clamp(24px,2.4vw,30px)}
+.cp-body{display:grid;grid-template-columns:1fr 170px;gap:28px;align-items:start}
+.cp-body.solo{grid-template-columns:1fr}
+.cp-body p{font-size:15.5px}
+.cp-body .chk{margin:6px 0 18px}
+.cp-body .tx-pic{margin:0}
+.cp-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:4px;padding-top:16px;border-top:1px dashed var(--line)}
+.cp-top{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--slate-500);transition:color .3s}
+.cp-top svg{width:15px;height:15px}
+.cp-top:hover{color:var(--navy-600)}
+
+/* ---------- 14. Responsive ---------- */
 @media (max-width:1199px){
   .subnav,.subnav.many{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;border-radius:var(--r-lg)}
   .subnav::-webkit-scrollbar{display:none}
@@ -406,6 +425,8 @@
   .ph-card{max-width:none}
   .doc-pair,.ba-grid,.tx-links,.form,.bl-grid,.rel-grid,.tx-side,.opt-grid,.tx-intro,.steps3,.em-list{grid-template-columns:1fr}
   .tx-pic{max-width:220px}
+  .cp-body{grid-template-columns:1fr}
+  .cp-body .tx-pic{max-width:180px;grid-row:1}
   .steps3 li+li::before{display:none}
   .form-foot .mbtn{width:100%;justify-content:space-between}
   .faq-list .acc-a>div{padding:0 0 0 44px}

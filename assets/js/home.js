@@ -12,7 +12,7 @@
   if (window.lucide) lucide.createIcons();
 
   /* ---------- Design preview: point the WordPress slugs at the static pages built so far ---------- */
-  const BUILT = ['meet-dr-paul-m-mendes', 'meet-dr-charles-h-mendes', 'meet-the-team', 'what-sets-us-apart', 'office-visits', 'financial-information', 'before-and-after', 'testimonials', 'dental-faqs', 'office-location', 'appointment-request', 'blog', 'cosmetic-dentistry', 'teeth-whitening', 'veneers', 'bonding', 'bridges', 'crowns', 'implants', 'dentures', 'gum-disease', 'extractions', 'fillings', 'root-canals', 'digital-x-rays', 'emergency-dental-care'];
+  const BUILT = ['meet-dr-paul-m-mendes', 'meet-dr-charles-h-mendes', 'meet-the-team', 'what-sets-us-apart', 'office-visits', 'financial-information', 'before-and-after', 'testimonials', 'dental-faqs', 'office-location', 'appointment-request', 'blog', 'cosmetic-dentistry', 'teeth-whitening', 'veneers', 'bonding', 'bridges', 'crowns', 'implants', 'dentures', 'gum-disease', 'extractions', 'fillings', 'root-canals', 'digital-x-rays', 'emergency-dental-care', 'common-procedures'];
   $$('a[href^="/"]').forEach((a) => {
     const slug = a.getAttribute('href').slice(1).split('#')[0];
     if (slug === 'home') a.setAttribute('href', 'home.html');
@@ -131,6 +131,11 @@
   onScroll(0);
   toTop.addEventListener('click', () => smoother.scrollTo(0, true));
   $$('[data-top]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); smoother.scrollTo(0, true); }));
+  /* In-page anchors (topic lists) scroll through the smoother, clear of the sticky nav */
+  $$('a[href^="#"]:not([data-top]):not([href="#top"])').forEach((a) => a.addEventListener('click', (e) => {
+    const t = document.getElementById(a.getAttribute('href').slice(1));
+    if (t) { e.preventDefault(); smoother.scrollTo(t, true, 'top 110px'); }
+  }));
 
   /* Fade-up entrances (Dentcure/WOW: 30px rise, 1.2s, stepped delays) */
   $$('[data-fade]').forEach((el) => {
