@@ -105,6 +105,7 @@
 .edu{list-style:none;margin:0 0 var(--s-6);padding:0;border-top:1px solid var(--line)}
 .edu li{display:grid;grid-template-columns:96px 1fr;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
 .edu .yr{font-family:var(--font-display);font-size:28px;line-height:1;color:var(--navy-600)}
+.edu .yr svg{width:26px;height:26px;color:var(--gold-500)}
 .edu .what{color:var(--navy-900);font-weight:600;line-height:1.45}
 .edu .what small{display:block;font-weight:500;color:var(--slate-500);font-size:14.5px;margin-top:2px}
 .edu .what a{color:inherit;border-bottom:1px solid var(--sky-300)}
