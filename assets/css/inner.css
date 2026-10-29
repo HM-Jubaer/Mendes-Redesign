@@ -174,6 +174,21 @@
 .figs b sup{font-size:.42em;color:var(--gold-500);top:-.9em;margin-left:2px}
 .figs span{display:block;margin-top:10px;font-size:14px;line-height:1.4;color:#8FA3D6}
 
+.fic{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--navy-600);color:#fff;margin-bottom:24px}
+.fic svg{width:26px;height:26px}
+.fic.gold{background:var(--gold-500);color:var(--navy-900)}
+.chk.light{margin:0 0 24px}
+.chk.light li{color:#fff}
+.chk.light li::before{background-color:var(--gold-500);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10' fill='none' stroke='%230F1D45' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 5l3.5 3.5L11 1.5'/%3E%3C/svg%3E")}
+.panel-navy .mbtn{margin-top:8px}
+.pay-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;margin-top:28px;padding-top:26px;border-top:1px solid var(--line)}
+.pay-row .tel-link{color:var(--navy-900)}
+.chip-link{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 20px;border-radius:var(--r-pill);background:#fff;border:1px solid var(--sky-300);color:var(--navy-700);font-weight:600;transition:all .3s}
+.chip-link svg{width:18px;height:18px}
+.chip-link svg:last-child{width:15px;height:15px;color:var(--sky-300);transition:color .3s}
+.chip-link:hover{background:var(--navy-600);border-color:var(--navy-600);color:#fff}
+.chip-link:hover svg:last-child{color:var(--gold-500)}
+
 /* ---------- 9. Responsive ---------- */
 @media (max-width:1199px){
   .subnav{justify-content:flex-start;overflow-x:auto;scrollbar-width:none;border-radius:var(--r-lg)}
