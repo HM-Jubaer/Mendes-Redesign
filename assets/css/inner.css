@@ -219,6 +219,21 @@
 .tx-links a:hover{color:var(--navy-600);padding-left:6px}
 .tx-links a:hover svg{color:var(--navy-600)}
 
+/* ---------- 8. Testimonials ---------- */
+.rv-embed{padding:clamp(24px,3vw,36px);border-radius:40px;background:var(--sky-50);border:1px solid var(--sky-100)}
+.rv-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.rv-score{display:flex;align-items:center;gap:14px}
+.rv-score b{color:var(--navy-900);font-size:19px}
+.rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rv-card{display:grid;gap:10px;padding:26px;border-radius:var(--r-lg) var(--r-lg) var(--r-lg) 0;background:#fff;box-shadow:0 0 40px 5px rgba(15,29,69,.04)}
+.rv-card .stars{margin-bottom:8px}
+.rv-card i{display:block;height:10px;border-radius:6px;background:var(--line-soft)}
+.rv-card>i:nth-of-type(1){width:92%}.rv-card>i:nth-of-type(2){width:100%}.rv-card>i:nth-of-type(3){width:84%}.rv-card>i:nth-of-type(4){width:60%}
+.rv-card .who{display:flex;align-items:center;gap:12px;margin-top:14px;padding-top:16px;border-top:1px solid var(--line-soft)}
+.rv-card .who .av{width:40px;height:40px;border-radius:50%;background:var(--sky-100)}
+.rv-card .who i{width:120px}
+.fcard .link-arrow{margin-top:18px}
+
 /* ---------- 9. Responsive ---------- */
 @media (max-width:1199px){
   .subnav{justify-content:flex-start;overflow-x:auto;scrollbar-width:none;border-radius:var(--r-lg)}
@@ -233,6 +248,8 @@
   .dp-next .mbtn{grid-column:1/-1;justify-self:start}
   .intro-2,.duo,.ap-grid.two,.tx-panel{grid-template-columns:1fr}
   .ba-grid{grid-template-columns:1fr 1fr}
+  .rv-grid{grid-template-columns:1fr}
+  .rv-card:nth-child(n+2){display:none}
   .mb,.mb:nth-child(even){grid-template-columns:200px 1fr;padding:20px 24px 20px 20px;border-radius:40px 40px 40px 0}
   .mb:nth-child(even) .tm-card{order:0}
 }
