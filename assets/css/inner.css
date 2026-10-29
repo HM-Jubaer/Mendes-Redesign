@@ -309,7 +309,8 @@
 .tx-main .chk{margin:var(--s-5) 0}
 .tx-main .chk li{font-weight:500}
 .tx-main .panel,.tx-main .pull{margin:var(--s-6) 0}
-.tx-main .panel p:last-child{margin-bottom:0}
+.tx-main .panel>p:last-child{margin-bottom:0}
+.tx-main .panel .chk{margin:20px 0 0}
 .tx-fig{margin:var(--s-6) 0;border-radius:40px 40px 40px 0;overflow:hidden;background:var(--sky-50);border:1px solid var(--sky-100)}
 .tx-fig img{width:100%;height:auto}
 .tx-side{display:grid;gap:24px}
