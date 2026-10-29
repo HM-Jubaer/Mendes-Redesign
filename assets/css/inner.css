@@ -348,6 +348,9 @@
 .avoid{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
 .avoid li{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:var(--r-pill);background:#fff;border:1px solid var(--sky-100);color:var(--navy-800);font-weight:600;font-size:14.5px}
 .avoid svg{width:17px;height:17px;color:var(--coral-500)}
+.avoid.mats svg{color:var(--gold-600)}
+.steps3.icons .n svg{width:26px;height:26px;color:var(--gold-600)}
+.steps3.icons li+li::before{display:none}
 
 /* ---------- 13. Responsive ---------- */
 @media (max-width:1199px){
