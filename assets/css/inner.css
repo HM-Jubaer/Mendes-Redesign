@@ -343,6 +343,9 @@
 .opt-grid .fcard{padding:30px 26px}
 .opt-grid .fcard h3{font-size:20px}
 .opt-grid .fcard p{font-size:15px}
+.opt-grid.three{grid-template-columns:repeat(3,1fr);margin:var(--s-5) 0}
+.opt-grid.three .fcard{padding:26px 22px}
+.opt-grid.three .fcard h3{font-size:18px}
 .tx-close{margin-top:var(--s-6)}
 .tx-main .panel-navy{margin:var(--s-6) 0}
 .tx-main .panel-navy p{color:#C9D6F3}
@@ -428,7 +431,7 @@
   .pull{padding:24px 22px 24px 24px}
   .dp-next{grid-template-columns:1fr;padding:24px}
   .ph-card{max-width:none}
-  .doc-pair,.ba-grid,.tx-links,.form,.bl-grid,.rel-grid,.tx-side,.opt-grid,.tx-intro,.steps3,.em-list{grid-template-columns:1fr}
+  .doc-pair,.ba-grid,.tx-links,.form,.bl-grid,.rel-grid,.tx-side,.opt-grid,.opt-grid.three,.tx-intro,.steps3,.em-list{grid-template-columns:1fr}
   .tx-pic{max-width:220px}
   .cp-body{grid-template-columns:1fr}
   .cp-body .tx-pic{max-width:180px;grid-row:1}
