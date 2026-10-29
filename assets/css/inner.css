@@ -39,6 +39,9 @@
 .ph-card .tel-link{display:flex;color:#fff;padding:16px 0;border-block:1px solid rgba(255,255,255,.12)}
 .ph-card .hours{margin-top:14px;font-size:14px}
 .ph-card .hours li{padding:2px 0}
+.ph-card .ph-dir{margin-top:18px}
+.visit.pg-top{padding-top:var(--section)}
+.visit.pg-top+.pg-sec .doc-pair{margin-top:0}
 
 /* Section sub-nav, overlapping the hero edge (home .info-bar) */
 .ph-foot{position:relative;z-index:2;margin-top:clamp(56px,7vw,96px);background:linear-gradient(180deg,transparent 50%,#fff 50%)}
