@@ -51,7 +51,9 @@
 
 /* ---------- 2. Shared page sections ---------- */
 .pg-sec{padding:var(--section) 0}
-.pg-sec.flush-top{padding-top:0}
+.pg-sec.flush-top,.apart.flush{padding-top:0}
+.pg-sec.flush-bottom{padding-bottom:0}
+.apart.flush .sec-head{padding-top:var(--s-8)}
 .pg-sec.soft{background:var(--sky-50)}
 .pg-sec h2.sec-title .hl-serif{color:var(--blue-500)}
 .prose p{color:var(--slate-500);font-size:16.5px}
