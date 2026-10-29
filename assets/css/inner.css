@@ -312,6 +312,7 @@
 /* ---------- 12. Treatment pages ---------- */
 .tx-layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(40px,6vw,80px);align-items:start}
 .tx-main .tx-lead{margin:var(--s-5) 0 0;color:var(--navy-900);font-size:clamp(18px,1.6vw,21px);line-height:1.6;font-weight:500}
+.tx-main .tx-lead+p{margin-top:var(--s-5)}
 .tx-main h2.sec-title{margin:0}
 .tx-main>h2:not(.sec-title){margin:var(--s-8) 0 var(--s-5)}
 .tx-main h3{font-size:22px;margin:0 0 10px}
