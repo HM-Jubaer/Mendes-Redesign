@@ -12,7 +12,7 @@
   if (window.lucide) lucide.createIcons();
 
   /* ---------- Design preview: point the WordPress slugs at the static pages built so far ---------- */
-  const BUILT = ['meet-dr-paul-m-mendes', 'meet-dr-charles-h-mendes'];
+  const BUILT = ['meet-dr-paul-m-mendes', 'meet-dr-charles-h-mendes', 'meet-the-team'];
   $$('a[href^="/"]').forEach((a) => {
     const slug = a.getAttribute('href').slice(1).split('#')[0];
     if (slug === 'home') a.setAttribute('href', 'home.html');
