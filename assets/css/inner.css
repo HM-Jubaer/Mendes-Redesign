@@ -351,6 +351,14 @@
 .tx-main .panel-navy p{color:#C9D6F3}
 .tx-main .panel-navy .tel-link{color:#fff;margin-top:6px}
 .link-arrow.light{color:var(--gold-500);margin-top:4px}
+.figs.three{grid-template-columns:repeat(3,1fr);margin:0;padding:0;border:0}
+.kit{display:flex;align-items:center;gap:16px;margin:20px 0 0;padding:18px 22px;border-radius:var(--r-lg);background:var(--gold-100);border:1px solid #F3DDB2;transition:transform .3s var(--ease)}
+.kit:hover{transform:translateY(-3px)}
+.kit .ic{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:var(--gold-500);color:var(--navy-900);flex:none}
+.kit .ic svg{width:22px;height:22px}
+.kit small{display:block;color:#7A5210;font-size:13.5px;font-weight:600}
+.kit b{display:block;color:var(--navy-900);font-size:17px}
+.kit>svg{margin-left:auto;width:20px;height:20px;color:var(--navy-700)}
 .tx-main .chk li{font-size:15.5px;line-height:1.6}
 .tx-intro{display:grid;grid-template-columns:1fr 220px;gap:32px;align-items:center;margin-bottom:var(--s-5)}
 .tx-pic{margin:var(--s-5) 0 0;padding:10px;border-radius:40px 40px 40px 0;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 0 40px 5px rgba(15,29,69,.05)}
@@ -379,6 +387,7 @@
 .avoid.mats svg{color:var(--gold-600)}
 .avoid li a{display:inline-flex;align-items:center;gap:8px;transition:color .3s}
 .avoid li a:hover{color:var(--blue-500)}
+.avoid+p{margin-top:22px}
 .steps3.icons .n svg{width:26px;height:26px;color:var(--gold-600)}
 .steps3.icons li+li::before{display:none}
 
@@ -432,7 +441,7 @@
   .pull{padding:24px 22px 24px 24px}
   .dp-next{grid-template-columns:1fr;padding:24px}
   .ph-card{max-width:none}
-  .doc-pair,.ba-grid,.tx-links,.form,.bl-grid,.rel-grid,.tx-side,.opt-grid,.opt-grid.three,.tx-intro,.steps3,.em-list{grid-template-columns:1fr}
+  .doc-pair,.ba-grid,.tx-links,.form,.bl-grid,.rel-grid,.tx-side,.opt-grid,.opt-grid.three,.tx-intro,.steps3,.em-list,.figs.three{grid-template-columns:1fr}
   .tx-pic{max-width:220px}
   .cp-body{grid-template-columns:1fr}
   .cp-body .tx-pic{max-width:180px;grid-row:1}
