@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dental FAQs | Mendes Family Dentistry, P.A. | St. Paul, MN Dentist</title>
+    <meta
+      name="description"
+      content="Answers to common dental questions from Mendes Family Dentistry, P.A. in Saint Paul, MN: checkups, cavities, fillings, brushing, gum disease, and more."
+    />
+    <link rel="icon" href="assets/logo-mark.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/mendes.css" />
+    <link rel="stylesheet" href="assets/css/home.css" />
+    <link rel="stylesheet" href="assets/css/inner.css" />
+    <script>
+      document.documentElement.classList.add(
+        matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "no-motion"
+          : "js-motion",
+      );
+    </script>
+  </head>
+  <body>
+    <div class="preloader" aria-hidden="true">
+      <div class="ripple">
+        <i></i><i></i><img src="assets/logo-mark.png" alt="" />
+      </div>
+    </div>
+
+    <!-- ============ HEADER: top bar + pill nav (menus exactly as the old site) ============ -->
+    <header class="hd" id="top">
+      <div class="hd-top">
+        <div class="container">
+          <div class="hd-social">
+            <span>Follow Us:</span>
+            <a
+              href="https://www.facebook.com/pages/Mendes-Family-Dentistry/200756549942110"
+              target="_blank"
+              rel="noopener"
+              aria-label="Follow Us On Facebook"
+              ><i data-lucide="facebook"></i
+            ></a>
+            <a
+              href="https://twitter.com/MendesFamDental"
+              target="_blank"
+              rel="noopener"
+              aria-label="Follow Us On Twitter"
+              ><i data-lucide="twitter"></i
+            ></a>
+            <a
+              href="https://www.google.com/maps/place/Mendes+Family+Dentistry/@44.9247466,-93.1688659,17z/data=!3m1!4b1!4m2!3m1!1s0x87f62a31955fcca9:0xe64561a617848ffb"
+              target="_blank"
+              rel="noopener"
+              aria-label="Find us on Google"
+              ><i data-lucide="map-pin"></i
+            ></a>
+            <a
+              href="https://www.youtube.com/channel/UCIVDbtzzmbiDVvH80oCVLhQ"
+              target="_blank"
+              rel="noopener"
+              aria-label="YouTube"
+              ><i data-lucide="youtube"></i
+            ></a>
+            <a href="/blog" aria-label="Our Blog"><i data-lucide="rss"></i></a>
+          </div>
+          <ul>
+            <li class="addr">
+              <a href="/office-location"
+                ><i data-lucide="map-pin"></i>550 Snelling Ave S, Saint Paul, MN
+                55116</a
+              >
+            </li>
+            <li>
+              <a href="tel:651-699-0404"
+                ><i data-lucide="phone"></i>(651) 699-0404</a
+              >
+            </li>
+            <li class="login">
+              <a
+                href="https://patient.sesamecommunications.com/pmendes/index.html"
+                target="_blank"
+                rel="noopener"
+                ><i data-lucide="log-in"></i>Patient Login</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="nav-wrap" id="navWrap">
+        <div class="container">
+          <nav class="nav-pill" aria-label="Main">
+            <a class="logo" href="/home"
+              ><img
+                src="assets/logo.png"
+                alt="Mendes Family Dentistry"
+                width="887"
+                height="237"
+            /></a>
+            <ul class="menu">
+              <li><a href="/home">Home</a></li>
+              <li>
+                <a href="/meet-dr-paul-m-mendes"
+                  >About Us <i data-lucide="chevron-down"></i
+                ></a>
+                <ul class="dd">
+                  <li>
+                    <a href="/meet-dr-paul-m-mendes">Meet Dr. Paul M. Mendes</a>
+                  </li>
+                  <li>
+                    <a href="/meet-dr-charles-h-mendes"
+                      >Meet Dr. Charles H. Mendes</a
+                    >
+                  </li>
+                  <li><a href="/meet-the-team">Meet the Team</a></li>
+                  <li><a href="/what-sets-us-apart">What Sets Us Apart</a></li>
+                  <li><a href="/blog">Our Blog</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="/office-visits" class="active"
+                  >New Patients <i data-lucide="chevron-down"></i
+                ></a>
+                <ul class="dd">
+                  <li><a href="/office-visits">Office Visits</a></li>
+                  <li>
+                    <a href="/financial-information">Financial Information</a>
+                  </li>
+                  <li><a href="/before-and-after">Before and After</a></li>
+                  <li><a href="/testimonials">Testimonials</a></li>
+                  <li><a href="/dental-faqs" aria-current="page">Dental FAQs</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="/gum-disease"
+                  >General Care <i data-lucide="chevron-down"></i
+                ></a>
+                <ul class="dd cols-2">
+                  <li><a href="/gum-disease">Gum Disease</a></li>
+                  <li><a href="/extractions">Extractions</a></li>
+                  <li><a href="/fillings">Fillings</a></li>
+                  <li><a href="/root-canals">Root Canals</a></li>
+                  <li><a href="/digital-x-rays">Digital X-rays</a></li>
+                  <li>
+                    <a href="/emergency-dental-care">Emergency Dental Care</a>
+                  </li>
+                  <li><a href="/common-procedures">Common Procedures</a></li>
+                  <li><a href="/intraoral-camera">Intraoral Camera</a></li>
+                  <li><a href="/nightguards">Nightguards</a></li>
+                  <li><a href="/bruxism">Bruxism</a></li>
+                  <li><a href="/nitrous-oxide">Nitrous Oxide</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="/bonding"
+                  >Restorative <i data-lucide="chevron-down"></i
+                ></a>
+                <ul class="dd">
+                  <li><a href="/bonding">Bonding</a></li>
+                  <li><a href="/bridges">Bridges</a></li>
+                  <li><a href="/crowns">Crowns</a></li>
+                  <li><a href="/implants">Implants</a></li>
+                  <li><a href="/dentures">Dentures</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="/cosmetic-dentistry"
+                  >Cosmetic <i data-lucide="chevron-down"></i
+                ></a>
+                <ul class="dd">
+                  <li><a href="/cosmetic-dentistry">Cosmetic Dentistry</a></li>
+                  <li><a href="/teeth-whitening">Teeth Whitening</a></li>
+                  <li><a href="/veneers">Veneers</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="/pediatric-dentistry"
+                  >Pediatric <i data-lucide="chevron-down"></i
+                ></a>
+                <ul class="dd">
+                  <li>
+                    <a href="/pediatric-dentistry">Pediatric Dentistry</a>
+                  </li>
+                  <li>
+                    <a href="/pediatric-dental-faqs">Pediatric Dental FAQs</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="/office-location"
+                  >Contact Us <i data-lucide="chevron-down"></i
+                ></a>
+                <ul class="dd">
+                  <li><a href="/office-location">Office Location</a></li>
+                  <li>
+                    <a href="/appointment-request">Appointment Request</a>
+                  </li>
+                  <li><a href="/refer-a-friend">Refer a Friend</a></li>
+                  <li><a href="/refer-a-patient">Refer a Patient</a></li>
+                  <li><a href="/coronavirus-update">Coronavirus Update</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="nav-right">
+              <a
+                class="nav-call"
+                href="tel:651-699-0404"
+                aria-label="Call (651) 699-0404"
+                ><i data-lucide="phone"></i
+              ></a>
+              <a class="mbtn sm" href="/appointment-request"
+                >Request an Appointment
+                <span class="arr"><i data-lucide="arrow-right"></i></span
+              ></a>
+              <button
+                class="nav-toggle"
+                id="ocOpen"
+                aria-label="Open menu"
+                aria-controls="oc"
+                aria-expanded="false"
+              >
+                <span><i></i><i></i><i></i></span>
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile off-canvas (built from the same menu by JS) -->
+    <div class="oc" id="oc" aria-hidden="true">
+      <div class="oc-bg" data-oc-close></div>
+      <aside class="oc-panel" role="dialog" aria-label="Menu">
+        <div class="oc-top">
+          <img src="assets/logo.png" alt="Mendes Family Dentistry" /><button
+            class="oc-close"
+            data-oc-close
+            aria-label="Close menu"
+          >
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <ul class="oc-menu" id="ocMenu"></ul>
+        <div class="oc-contact">
+          <a href="tel:651-699-0404"
+            ><i data-lucide="phone"></i>(651) 699-0404</a
+          >
+          <a href="/office-location"
+            ><i data-lucide="map-pin"></i>550 Snelling Ave S, Saint Paul, MN
+            55116</a
+          >
+          <a
+            href="https://patient.sesamecommunications.com/pmendes/index.html"
+            target="_blank"
+            rel="noopener"
+            ><i data-lucide="log-in"></i>Patient Login</a
+          >
+        </div>
+      </aside>
+    </div>
+
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <main>
+          <!-- ============ PAGE HERO ============ -->
+          <section class="pghero">
+            <div class="container">
+              <div class="ph-grid">
+                <div>
+                  <ol class="crumbs" data-fade>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/office-visits">New Patients</a></li>
+                    <li><span aria-current="page">Dental FAQs</span></li>
+                  </ol>
+                  <h1 class="split">Dental <span class="hl-serif">FAQs</span></h1>
+                  <p class="lead" data-fade data-delay=".2">Answers to the questions our Saint Paul patients ask most, from checkups and cavities to brushing and gum disease.</p>
+                </div>
+                <aside class="ph-card" data-fade data-delay=".3">
+                  <span class="badge"><span class="dot"></span>24/7 emergency coverage</span>
+                  <a class="tel-link" href="tel:651-699-0404"><span class="ic"><i data-lucide="phone-call"></i></span><span><small>Call our St. Paul office</small><b>(651) 699-0404</b></span></a>
+                  <ul class="hours">
+                      <li>Monday <span>8:00am to 5:00pm</span></li>
+                      <li>Tuesday <span>8:00am to 5:00pm</span></li>
+                      <li>Wednesday <span>8:00am to 5:00pm</span></li>
+                      <li>Thursday <span>8:00am to 5:00pm</span></li>
+                      <li>Friday <span>7:00am to 12:00pm</span></li>
+                    </ul>
+                </aside>
+              </div>
+            </div>
+            <div class="ph-foot">
+              <div class="container">
+                <nav class="subnav" aria-label="New Patients" data-fade data-delay=".4"><a href="/office-visits">Office Visits</a><a href="/financial-information">Financial Information</a><a href="/before-and-after">Before and After</a><a href="/testimonials">Testimonials</a><a href="/dental-faqs" aria-current="page">Dental FAQs</a></nav>
+              </div>
+            </div>
+          </section>
+
+<!-- ============ FAQ ============ -->
+          <section class="pg-sec">
+            <div class="container faq-grid">
+              <aside class="faq-side">
+                <span class="tag" data-fade><span class="ic"><img src="assets/logo-mark.png" alt="" /></span>Dental FAQs</span>
+                <h2 class="sec-title split">Questions patients <span class="hl-serif">often ask</span></h2>
+                <div class="panel-navy" data-fade>
+                  <span class="fic gold"><i data-lucide="calendar-check"></i></span>
+                  <h3>How do I schedule my next checkup?</h3>
+                  <p>Simply call our practice! Our front desk staff will be happy to schedule your next dental checkup at your convenience.</p>
+                  <a class="tel-link" href="tel:651-699-0404"><span class="ic"><i data-lucide="phone-call"></i></span><span><small>Call our St. Paul office</small><b>(651) 699-0404</b></span></a>
+                </div>
+                <a class="faq-more" href="/pediatric-dental-faqs" data-fade><span class="ic"><i data-lucide="baby"></i></span><span><b>Pediatric Dental FAQs</b><small>Questions about your child’s teeth</small></span><i data-lucide="arrow-right"></i></a>
+              </aside>
+              <div class="faq-list" data-fade>
+                  <div class="acc-item open">
+                    <button class="acc-q" aria-expanded="true" aria-controls="faq-1"><span><span class="qn">01</span>What is dentistry?</span><span class="pm"><i data-lucide="plus"></i></span></button>
+                    <div class="acc-a" id="faq-1" role="region"><div><p>Dentistry is the diagnosis, treatment, and prevention of conditions, disorders, and diseases of the teeth, gums, mouth, and jaw. Often considered necessary for complete oral health, dentistry can have an impact on the health of your entire body.</p></div></div>
+                  </div>
+                  <div class="acc-item">
+                    <button class="acc-q" aria-expanded="false" aria-controls="faq-2"><span><span class="qn">02</span>Who is a dentist?</span><span class="pm"><i data-lucide="plus"></i></span></button>
+                    <div class="acc-a" id="faq-2" role="region"><div><p>A dentist is a specialist who works to diagnose, treat, and prevent oral health problems. Dr. Charles Mendes and Dr. Paul Mendes have completed at least eight years of schooling to obtain their Doctorates of Dental Surgery (DDS).</p><p>If a doctor is a pediatric dentist, this means that he or she specializes in caring for children from infancy through their teen years. A pediatric dentist has received the proper education and training needed to work with young kids.</p><p>Other specializations include:</p><ul class="chk"><li>Endodontics (root canals)</li><li>Oral and maxillofacial (including pathology, radiology, and surgery)</li><li>Orthodontics and dentofacial orthopedics</li><li>Periodontics (gum disease)</li><li>Prosthodontics (implants)</li></ul></div></div>
+                  </div>
+                  <div class="acc-item">
+                    <button class="acc-q" aria-expanded="false" aria-controls="faq-3"><span><span class="qn">03</span>Why is visiting the dentist so important?</span><span class="pm"><i data-lucide="plus"></i></span></button>
+                    <div class="acc-a" id="faq-3" role="region"><div><p>Visiting our office regularly will not only help keep your teeth and mouth healthy, but will also help keep the rest of your body healthy. Dental care is important because it:</p><ul class="chk"><li>Helps prevent tooth decay</li><li>Protects against periodontal (gum) disease, which can lead to tooth and bone loss</li><li>Prevents bad breath; brushing, flossing, and seeing us regularly will help reduce the amount of bacteria in your mouth that causes bad breath</li><li>Gives you a more attractive smile and increases your self-confidence</li><li>Helps keep teeth looking bright by preventing them from becoming stained by food, drinks, and tobacco</li><li>Strengthens your teeth so you can enjoy healthy, beautiful smiles for the rest of your life!</li></ul></div></div>
+                  </div>
+                  <div class="acc-item">
+                    <button class="acc-q" aria-expanded="false" aria-controls="faq-4"><span><span class="qn">04</span>My teeth feel fine; do I still need to see a dentist?</span><span class="pm"><i data-lucide="plus"></i></span></button>
+                    <div class="acc-a" id="faq-4" role="region"><div><p>Your teeth may feel fine, but it’s still important to see the dentist regularly because problems can exist without your knowing. Your smile’s appearance is important, and we can help keep it healthy and looking beautiful.</p><p>With so many advances in dentistry, you no longer have to settle for stained, chipped, missing, or misshapen teeth. Today’s dentists offer many treatment choices that can help you smile with confidence, including:</p><ul class="chk"><li>Professional teeth whitening</li><li>Fillings that mimic the appearance of natural teeth</li><li>Tooth replacement and full smile makeovers</li></ul></div></div>
+                  </div>
+                  <div class="acc-item">
+                    <button class="acc-q" aria-expanded="false" aria-controls="faq-5"><span><span class="qn">05</span>What should I look for when choosing the right dentist for me?</span><span class="pm"><i data-lucide="plus"></i></span></button>
+                    <div class="acc-a" id="faq-5" role="region"><div><p>Choosing a dentist who “clicks” with you and your family is important, and you may wish to consider several dentists before making your final decision. During your first visit, you should be able to determine whether the dentist is right for you. During your appointment, consider the following:</p><ul class="chk"><li>Is the appointment schedule convenient?</li><li>Is the office easy to get to and close by?</li><li>Does the office appear to be clean and orderly?</li><li>Was your medical and dental history recorded and placed in a permanent file?</li><li>Does the dentist explain techniques for good oral health?</li><li>Is information about cost presented to you before treatment is scheduled?</li><li>Is your dentist a member of the ADA (American Dental Association)?</li></ul></div></div>
+                  </div>
+                  <div class="acc-item">
+                    <button class="acc-q" aria-expanded="false" aria-controls="faq-6"><span><span class="qn">06</span>How can I take care of my teeth between dental checkups?</span><span class="pm"><i data-lucide="plus"></i></span></button>
+                    <div class="acc-a" id="faq-6" role="region"><div><ul class="chk"><li>ALWAYS remember to brush your teeth at least two times a day, and floss at least once!</li><li>Make sure to use toothpaste that contains fluoride, and ask our team if you need a fluoride rinse. This will help prevent cavities.</li><li>Avoid foods with a lot of sugar (which increases the amount of bacteria that grows in your mouth and can cause more plaque and potential cavities), and avoid tobacco (which can stain your teeth, cause gum disease, and eventually lead to oral cancer).</li><li>Don’t be afraid to brush your tongue! This will remove food particles and reduce the amount of plaque-causing bacteria. Tongue brushing also helps keep your breath fresh.</li><li>Be sure to schedule your routine checkup. It is recommended that you visit the dentist every six months.</li></ul></div></div>
+                  </div>
+                  <div class="acc-item">
+                    <button class="acc-q" aria-expanded="false" aria-controls="faq-7"><span><span class="qn">07</span>At what age should I start taking my child to see the dentist?</span><span class="pm"><i data-lucide="plus"></i></span></button>
+                    <div class="acc-a" id="faq-7" role="region"><div><p>The American Academy of Pediatric Dentistry (AAPD) recommends that children first see a dentist as early as six months of age and no later than one year. During this time, your child’s baby teeth will be coming in and we can examine the health of those first few teeth. After the first visit, be sure to schedule regular checkups every six months.</p></div></div>
+                  </div>
+                  <div class="acc-item">
+                    <button class="acc-q" aria-expanded="false" aria-controls="faq-8"><span><span class="qn">08</span>How often should I see the dentist?</span><span class="pm"><i data-lucide="plus"></i></span></button>
+                    <div class="acc-a" id="faq-8" role="region"><div><p>Children, teens, and adults should all see the dentist for a regular checkup at least once every six months. Patients who are at a greater risk for oral cancer or gum disease may be required to come in more than just twice a year. The doctors will help determine how often you should visit our office for regular checkups.</p></div></div>
+                  </div>
+                  <div class="acc-item">
+                    <button class="acc-q" aria-expanded="false" aria-controls="faq-9"><span><span class="qn">09</span>What is a cavity?</span><span class="pm"><i data-lucide="plus"></i></span></button>
+                    <div class="acc-a" id="faq-9" role="region"><div><p>A cavity is a small hole that forms inside the tooth because of tooth decay. Cavities form when plaque buildup on the outside of the tooth combines with sugars and starches in the food you eat. This produces an acid that can eat away the enamel on your tooth.</p><p>If a cavity is left untreated, it can lead to more serious oral health problems. Cavities can be prevented by remembering to brush your teeth at least two times a day and floss between teeth at least once.</p></div></div>
+                  </div>
+                  <div class="acc-item">
+                    <button class="acc-q" aria-expanded="false" aria-controls="faq-10"><span><span class="qn">10</span>What is a filling?</span><span class="pm"><i data-lucide="plus"></i></span></button>
+                    <div class="acc-a" id="faq-10" role="region"><div><p>A filling is a synthetic material that a dentist uses to fill a cavity after all the tooth decay has been removed. Fillings do not generally hurt because we will numb your mouth with an anesthetic.</p><p>Fillings are made from a variety of different materials, including composites, gold, or ceramic. If you need a filling, be sure to talk to Dr. Charles or Dr. Paul about what type is best for you and your teeth.</p></div></div>
+                  </div>
+                  <div class="acc-item">
+                    <button class="acc-q" aria-expanded="false" aria-controls="faq-11"><span><span class="qn">11</span>How often should I brush my teeth?</span><span class="pm"><i data-lucide="plus"></i></span></button>
+                    <div class="acc-a" id="faq-11" role="region"><div><p>According to our office and the American Dental Association, you should brush your teeth at least two times a day. Brushing keeps your teeth, gums, and mouth clean and healthy by removing bacteria-causing plaque.</p><p>It is also recommended that you use a soft-bristled toothbrush and toothpaste that contains fluoride when you brush your teeth. You should spend at least a minute on the top teeth and a minute on the bottom, and remember to brush your tongue; it will help keep your breath smelling fresh!</p></div></div>
+                  </div>
+                  <div class="acc-item">
+                    <button class="acc-q" aria-expanded="false" aria-controls="faq-12"><span><span class="qn">12</span>When should I change my toothbrush?</span><span class="pm"><i data-lucide="plus"></i></span></button>
+                    <div class="acc-a" id="faq-12" role="region"><div><p>Your toothbrush will eventually wear out, especially if you are brushing your teeth twice a day for two to three minutes each time. We recommend that adults and children change their toothbrush every three months. If you are using an electric toothbrush, be sure to read the directions, because you may not need to change toothbrush heads as frequently.</p><p>Patients with gum disease are encouraged to change their toothbrush every four to six weeks to keep bacteria from spreading. After brushing, rinse your toothbrush with hot water to kill germs and keep the bristles clean. If you’ve been sick, be sure to change your toothbrush as soon as possible.</p></div></div>
+                  </div>
+                  <div class="acc-item">
+                    <button class="acc-q" aria-expanded="false" aria-controls="faq-13"><span><span class="qn">13</span>What is gum disease?</span><span class="pm"><i data-lucide="plus"></i></span></button>
+                    <div class="acc-a" id="faq-13" role="region"><div><p>Also known as periodontal disease, gum disease is mostly caused by plaque and bacteria buildup that is not treated in its early stage. Other causes of periodontal disease include tobacco use, teeth grinding, some medications, and genetics.</p><p>Gingivitis is the beginning stage of gum disease. If detected, it is treatable. Gingivitis left untreated may turn into gum disease. Advanced gum disease will lead to tooth and bone loss, and is a permanent condition.</p><p>Brushing your teeth regularly and visiting our office every six months will help prevent gingivitis and more severe cases of periodontal disease. Common signs of gum disease:</p><ul class="chk"><li>Red, irritated, bleeding, or swollen gums</li><li>Chronic bad breath</li><li>Loose teeth, or loss of teeth</li><li>Extreme tooth sensitivity</li><li>Receding gum line</li><li>Abscessed teeth</li></ul></div></div>
+                  </div>
+                  <div class="acc-item">
+                    <button class="acc-q" aria-expanded="false" aria-controls="faq-14"><span><span class="qn">14</span>If I have braces, do I still need dental checkups every six months?</span><span class="pm"><i data-lucide="plus"></i></span></button>
+                    <div class="acc-a" id="faq-14" role="region"><div><p>Yes! In fact, it’s even more important that patients receiving orthodontic treatment visit their dentist regularly. With braces, food may be caught in places your toothbrush can’t reach. This causes bacteria to build up and can lead to cavities, gingivitis, and gum disease. Our team will work closely with your orthodontist to make sure your teeth stay clean and healthy while wearing braces.</p></div></div>
+                  </div>
+                  <div class="acc-item">
+                    <button class="acc-q" aria-expanded="false" aria-controls="faq-15"><span><span class="qn">15</span>How do I schedule my next checkup?</span><span class="pm"><i data-lucide="plus"></i></span></button>
+                    <div class="acc-a" id="faq-15" role="region"><div><p>Simply call our practice! Our front desk staff will be happy to schedule your next dental checkup at your convenience. If you are a new patient, please let us know and we will provide you with all the information you need for your first dental visit.</p></div></div>
+                  </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ============ CLOSING CTA ============ -->
+          <section class="cta-band inset">
+            <div class="slab">
+              <div class="container cta-grid">
+                <div>
+                  <span class="tag on-dark" data-fade><span class="ic"><img src="assets/logo-mark.png" alt="" /></span>Request an Appointment</span>
+                  <h2 class="sec-title split">We’re excited to <span class="hl-serif">meet you</span></h2>
+                  <p data-fade>We’re excited to meet you, and look forward to working with you for many years to come. Please contact our St. Paul dental office to schedule an appointment today!</p>
+                </div>
+                <div class="cta-side" data-fade data-delay=".2">
+                  <a class="tel-link" href="tel:651-699-0404"><span class="ic"><i data-lucide="phone-call"></i></span><span><small>Call our St. Paul office</small><b>(651) 699-0404</b></span></a>
+                  <div class="btns">
+                    <a class="mbtn gold" href="/appointment-request">Appointment Request <span class="arr"><i data-lucide="arrow-right"></i></span></a>
+                    <a class="mbtn ghost" href="/refer-a-friend">Refer a Friend</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <!-- ============ FOOTER (old-site footer content: logos strip + Back to Top · Find Us · Browse) ============ -->
+        <footer class="ft">
+          <div class="container">
+            <div class="ft-logos">
+              <h3>Professional Affiliations</h3>
+              <div class="logos">
+                <a href="/meet-dr-paul-m-mendes"
+                  ><img
+                    src="assets/img/old-site/ft-logos-01.png"
+                    alt="American Dental Association"
+                    width="260"
+                    height="100"
+                    loading="lazy"
+                /></a>
+                <a href="/meet-dr-paul-m-mendes"
+                  ><img
+                    src="assets/img/old-site/ft-logos-02.png"
+                    alt="Great Lakes Implant Institute"
+                    width="317"
+                    height="100"
+                    loading="lazy"
+                /></a>
+                <a href="/meet-dr-paul-m-mendes"
+                  ><img
+                    src="assets/img/old-site/ft-logos-03.png"
+                    alt="Minnesota Dental Association"
+                    width="339"
+                    height="100"
+                    loading="lazy"
+                /></a>
+              </div>
+              <a class="to-top" href="#top" data-top
+                >Back to Top <i data-lucide="arrow-up"></i
+              ></a>
+            </div>
+
+            <div class="ft-strip">
+              <a class="logo" href="/home"
+                ><img
+                  src="assets/logo.png"
+                  alt="Mendes Family Dentistry"
+                  class="logo-white"
+              /></a>
+              <div class="items">
+                <div class="it">
+                  <span class="ic"><i data-lucide="phone"></i></span
+                  ><a href="tel:651-699-0404"
+                    ><small>Call Us</small><b>(651) 699-0404</b></a
+                  >
+                </div>
+                <div class="it">
+                  <span class="ic"><i data-lucide="map-pin"></i></span
+                  ><a href="/office-location"
+                    ><small>Find Us</small
+                    ><b>550 Snelling Ave S, Saint Paul</b></a
+                  >
+                </div>
+                <div class="it">
+                  <span class="ic"><i data-lucide="log-in"></i></span
+                  ><a
+                    href="https://patient.sesamecommunications.com/pmendes/index.html"
+                    target="_blank"
+                    rel="noopener"
+                    ><small>Existing patients</small><b>Patient Login</b></a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="ft-cols">
+              <div>
+                <h4>Mendes Family Dentistry</h4>
+                <p>
+                  At Mendes Family Dentistry, P.A., we love making people smile!
+                </p>
+                <div class="ft-social">
+                  <a
+                    href="https://www.facebook.com/pages/Mendes-Family-Dentistry/200756549942110"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Follow Us On Facebook"
+                    ><i data-lucide="facebook"></i
+                  ></a>
+                  <a
+                    href="https://twitter.com/MendesFamDental"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Follow Us On Twitter"
+                    ><i data-lucide="twitter"></i
+                  ></a>
+                  <a
+                    href="https://www.google.com/maps/place/Mendes+Family+Dentistry/@44.9247466,-93.1688659,17z/data=!3m1!4b1!4m2!3m1!1s0x87f62a31955fcca9:0xe64561a617848ffb"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Find us on Google"
+                    ><i data-lucide="map-pin"></i
+                  ></a>
+                  <a
+                    href="https://www.youtube.com/channel/UCIVDbtzzmbiDVvH80oCVLhQ"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="YouTube"
+                    ><i data-lucide="youtube"></i
+                  ></a>
+                  <a href="/blog" aria-label="Our Blog"
+                    ><i data-lucide="rss"></i
+                  ></a>
+                </div>
+              </div>
+              <div>
+                <h4>Find Us</h4>
+                <a class="ft-map" href="/office-location"
+                  ><img
+                    src="assets/img/old-site/ft-map.jpg"
+                    alt="Our Location"
+                    width="243"
+                    height="129"
+                    loading="lazy"
+                /></a>
+                <div class="ft-find">
+                  <div class="docs">
+                    <a href="/meet-dr-paul-m-mendes">Paul M. Mendes DDS</a
+                    ><a href="/meet-dr-charles-h-mendes"
+                      >Charles H. Mendes DDS</a
+                    >
+                  </div>
+                  <a href="/office-location"
+                    >550 Snelling Ave S<br />Saint Paul, MN 55116-1564</a
+                  >
+                  <a href="tel:651-699-0404">(651) 699-0404</a>
+                </div>
+              </div>
+              <div>
+                <h4>Browse</h4>
+                <ul class="ft-links">
+                  <li>
+                    <a href="/home"><i data-lucide="chevrons-right"></i>Home</a>
+                  </li>
+                  <li>
+                    <a href="/meet-dr-paul-m-mendes"
+                      ><i data-lucide="chevrons-right"></i>About Us</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/office-visits"
+                      ><i data-lucide="chevrons-right"></i>New Patients</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/gum-disease"
+                      ><i data-lucide="chevrons-right"></i>General Care</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/bonding"
+                      ><i data-lucide="chevrons-right"></i>Restorative</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/cosmetic-dentistry"
+                      ><i data-lucide="chevrons-right"></i>Cosmetic</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/pediatric-dentistry"
+                      ><i data-lucide="chevrons-right"></i>Pediatric</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/office-location"
+                      ><i data-lucide="chevrons-right"></i>Contact Us</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://patient.sesamecommunications.com/pmendes/index.html"
+                      target="_blank"
+                      rel="noopener"
+                      ><i data-lucide="chevrons-right"></i>Patient Login</a
+                    >
+                  </li>
+                  <li>
+                    <a href="/sitemap"
+                      ><i data-lucide="chevrons-right"></i>Site Map</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4>Office Hours</h4>
+                <ul class="hours">
+                  <li>Monday <span>8:00am to 5:00pm</span></li>
+                  <li>Tuesday <span>8:00am to 5:00pm</span></li>
+                  <li>Wednesday <span>8:00am to 5:00pm</span></li>
+                  <li>Thursday <span>8:00am to 5:00pm</span></li>
+                  <li>Friday <span>7:00am to 12:00pm</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="ft-word" aria-hidden="true"><span>MENDES</span></div>
+          <div class="ft-bar">
+            <div class="container">
+              <span>© 2026 Mendes Family Dentistry, P.A.</span>
+              <a href="/sitemap">Site Map</a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Back to top">
+      <i data-lucide="arrow-up"></i>
+    </button>
+    <nav class="design-switcher" aria-label="Design pages">
+      <span class="ds-label">Mendes Redesign</span>
+      <a href="index.html">Overview</a>
+      <a href="style-guide.html">Style Guide</a>
+      <a href="home.html">Home</a>
+      <a href="dental-faqs.html" class="on">Dental FAQs</a>
+    </nav>
+
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    <script src="assets/js/home.js"></script>
+  </body>
+</html>

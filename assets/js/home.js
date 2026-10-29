@@ -12,7 +12,7 @@
   if (window.lucide) lucide.createIcons();
 
   /* ---------- Design preview: point the WordPress slugs at the static pages built so far ---------- */
-  const BUILT = ['meet-dr-paul-m-mendes', 'meet-dr-charles-h-mendes', 'meet-the-team', 'what-sets-us-apart', 'office-visits', 'financial-information', 'before-and-after', 'testimonials'];
+  const BUILT = ['meet-dr-paul-m-mendes', 'meet-dr-charles-h-mendes', 'meet-the-team', 'what-sets-us-apart', 'office-visits', 'financial-information', 'before-and-after', 'testimonials', 'dental-faqs'];
   $$('a[href^="/"]').forEach((a) => {
     const slug = a.getAttribute('href').slice(1).split('#')[0];
     if (slug === 'home') a.setAttribute('href', 'home.html');
@@ -81,6 +81,17 @@
     r.addEventListener('input', set);
     set();
   });
+
+  /* ---------- FAQ accordion (one open at a time) ---------- */
+  $('.acc-q').forEach((q) => q.addEventListener('click', () => {
+    const item = q.closest('.acc-item'), open = !item.classList.contains('open');
+    $('.acc-item.open', item.parentElement).forEach((i) => {
+      i.classList.remove('open');
+      i.querySelector('.acc-q').setAttribute('aria-expanded', 'false');
+    });
+    if (open) { item.classList.add('open'); q.setAttribute('aria-expanded', 'true'); }
+    if (window.ScrollTrigger) setTimeout(() => ScrollTrigger.refresh(), 400);
+  }));
 
   /* ---------- Sticky nav (Denox: > 50px, slide-down .7s) + scroll-top ---------- */
   const navWrap = $('#navWrap'), toTop = $('#scrollTop');
