@@ -1,0 +1,152 @@
+/* =========================================================
+   Mendes Family Dentistry — Inner pages (V1)
+   Loads after mendes.css + home.css and reuses their header,
+   footer, buttons, tags and section patterns. Every word and
+   image is from the practice's own site.
+   ========================================================= */
+
+/* ---------- 1. Page hero (home hero, shorter) ---------- */
+.ph{
+  position:relative;overflow:hidden;color:#C9D6F3;
+  background:radial-gradient(900px 520px at 85% 8%,rgba(91,139,234,.35),transparent 60%),
+             radial-gradient(700px 500px at -5% 90%,rgba(227,163,58,.14),transparent 60%),
+             var(--grad-navy);
+  padding:calc(52px + 78px + clamp(48px,6vw,88px)) 0 0;
+}
+.ph::before{
+  content:"";position:absolute;right:-120px;top:90px;width:480px;height:480px;border-radius:50%;
+  background:url(../logo-mark.png) center/contain no-repeat;opacity:.05;filter:brightness(0) invert(1);pointer-events:none;
+}
+.ph-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:end}
+.ph h1{color:#fff;font-size:clamp(40px,5.2vw,68px);line-height:1.04;letter-spacing:-.025em;margin:var(--s-5) 0}
+.ph h1 .hl-serif{color:var(--gold-500);white-space:nowrap}
+.ph .lead{font-size:var(--fs-lead);line-height:1.6;max-width:56ch;margin:0}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:10px;list-style:none;margin:0;padding:0;font-size:14px;color:#8FA3D6}
+.crumbs li{display:inline-flex;align-items:center;gap:10px}
+.crumbs li+li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold-500)}
+.crumbs a{transition:color .3s}
+.crumbs a:hover,.crumbs [aria-current]{color:#fff}
+
+/* Glass contact card (home .hero-card, in flow) */
+.ph-card{
+  position:relative;overflow:hidden;justify-self:end;width:100%;max-width:380px;padding:22px 24px;
+  border-radius:var(--r-lg);background:rgba(15,29,69,.55);border:1px solid rgba(255,255,255,.18);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+}
+.ph-card::before{content:"";position:absolute;right:-90px;bottom:-90px;width:200px;height:200px;background:var(--gold-500);filter:blur(80px);opacity:.4;z-index:-1}
+.ph-card .badge{display:flex;width:fit-content;background:rgba(255,255,255,.12);color:#fff;margin-bottom:16px}
+.ph-card .badge .dot{background:var(--gold-500);box-shadow:0 0 0 4px rgba(227,163,58,.2)}
+.ph-card .tel-link{display:flex;color:#fff;padding:16px 0;border-block:1px solid rgba(255,255,255,.12)}
+.ph-card .hours{margin-top:14px;font-size:14px}
+.ph-card .hours li{padding:2px 0}
+
+/* Section sub-nav, overlapping the hero edge (home .info-bar) */
+.ph-foot{position:relative;z-index:2;margin-top:clamp(56px,7vw,96px);background:linear-gradient(180deg,transparent 50%,#fff 50%)}
+.subnav{display:flex;justify-content:center;gap:6px;padding:10px;background:#fff;border-radius:var(--r-pill);box-shadow:var(--sh-3)}
+.subnav a{display:inline-flex;align-items:center;padding:12px 20px;border-radius:var(--r-pill);font-size:15px;font-weight:600;color:var(--navy-900);white-space:nowrap;transition:background .3s,color .3s}
+.subnav a:hover{background:var(--sky-50);color:var(--navy-600)}
+.subnav a[aria-current]{background:var(--navy-600);color:#fff}
+.dd a[aria-current]{color:#fff}
+.dd a[aria-current]::before{opacity:1}
+
+/* ---------- 2. Shared page sections ---------- */
+.pg-sec{padding:var(--section) 0}
+.pg-sec.flush-top{padding-top:0}
+.pg-sec.soft{background:var(--sky-50)}
+.pg-sec h2.sec-title .hl-serif{color:var(--blue-500)}
+.prose p{color:var(--slate-500);font-size:16.5px}
+.prose p a,.prose li a{color:var(--navy-600);font-weight:600;border-bottom:1px solid var(--sky-300);transition:border-color .3s}
+.prose p a:hover,.prose li a:hover{border-color:var(--navy-600)}
+.prose h2{font-size:clamp(28px,3vw,38px);line-height:1.1;margin:var(--s-8) 0 var(--s-5)}
+.prose h2 .hl-serif{color:var(--blue-500)}
+
+/* Big pull quote (home .doc-q, on white) */
+.pull{position:relative;margin:0 0 var(--s-6);padding:30px 32px 30px 36px;border-radius:0 var(--r-lg) var(--r-lg) var(--r-lg);background:var(--sky-50);border:1px solid var(--sky-100)}
+.pull::before{content:"\201C";position:absolute;right:26px;top:6px;font-family:var(--font-display);font-size:120px;line-height:1;color:var(--sky-300)}
+.pull p{position:relative;margin:0;padding-right:48px;color:var(--navy-900);font-size:clamp(18px,1.7vw,21px);line-height:1.55;font-weight:500}
+
+/* Check chips list (home .tx-list) */
+.chk{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.chk li{display:flex;gap:12px;align-items:flex-start;color:var(--navy-900);font-weight:500}
+.chk li::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;background:var(--navy-600) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 5l3.5 3.5L11 1.5'/%3E%3C/svg%3E") center/11px no-repeat}
+.chk.two{grid-template-columns:1fr 1fr;gap:14px 28px}
+
+/* Feature card (home .ap-card) */
+.fcard{position:relative;padding:36px 32px 34px;border-radius:50px 50px 50px 0;background:#fff;border:1px solid var(--line);box-shadow:0 0 40px 5px rgba(15,29,69,.04);transition:border-color .4s}
+.fcard:hover{border-color:var(--sky-300)}
+.fcard .ic{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;background:var(--gold-100);color:var(--gold-600);margin-bottom:24px}
+.fcard .ic svg{width:28px;height:28px}
+.fcard h3{font-size:24px;margin-bottom:14px}
+.fcard p{margin:0 0 1em;color:var(--slate-500);font-size:15.5px}
+.fcard p:last-child{margin-bottom:0}
+
+/* ---------- 3. Closing CTA (home .visit slab, compact) ---------- */
+.cta-band{padding-bottom:var(--section)}
+.cta-band .slab{position:relative;overflow:hidden;border-radius:40px;background:var(--navy-900);color:#C9D6F3}
+.cta-band .slab::before{content:"";position:absolute;inset:0;background:url(../img/old-site/pic-skyline.jpg) center 70%/cover no-repeat;opacity:.16}
+.cta-band .slab::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy-900) 35%,rgba(15,29,69,.55))}
+.cta-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(32px,5vw,72px);align-items:center;padding:clamp(56px,7vw,88px) 0}
+.cta-grid h2{color:#fff}
+.cta-grid p{font-size:var(--fs-lead);margin:var(--s-5) 0 0;max-width:52ch}
+.cta-side{display:grid;gap:22px;justify-items:start;padding-left:clamp(0px,3vw,40px);border-left:1px solid rgba(255,255,255,.1)}
+.cta-side .tel-link{color:#fff}
+.cta-side .btns{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ---------- 4. Doctor profile ---------- */
+.dp-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(40px,6vw,88px);align-items:start}
+.dp-photo{aspect-ratio:240/300;border-radius:220px 220px var(--r-lg) var(--r-lg);overflow:hidden;background:var(--sky-100);border:8px solid var(--sky-50);box-shadow:var(--sh-3)}
+.dp-photo img{width:100%;height:100%;object-fit:cover}
+.dp-id{position:relative;margin:-56px 22px 0;padding:22px 24px;border-radius:var(--r-lg);background:#fff;box-shadow:var(--sh-3);z-index:1}
+.dp-id b{display:block;color:var(--navy-900);font-size:19px;line-height:1.25}
+.dp-id span{display:block;margin-top:4px;font-size:14px;color:var(--slate-500);line-height:1.45}
+.dp-id .mbtn{margin-top:18px}
+.dp-copy>p{color:var(--slate-500);font-size:16.5px}
+.dp-copy .pull{margin-top:28px}
+.edu{list-style:none;margin:0 0 var(--s-6);padding:0;border-top:1px solid var(--line)}
+.edu li{display:grid;grid-template-columns:96px 1fr;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
+.edu .yr{font-family:var(--font-display);font-size:28px;line-height:1;color:var(--navy-600)}
+.edu .what{color:var(--navy-900);font-weight:600;line-height:1.45}
+.edu .what small{display:block;font-weight:500;color:var(--slate-500);font-size:14.5px;margin-top:2px}
+.edu .what a{color:inherit;border-bottom:1px solid var(--sky-300)}
+.edu .what a:hover{border-color:var(--navy-600)}
+.aff{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.aff li{display:inline-flex;align-items:center;gap:10px;padding:8px 18px 8px 8px;border-radius:var(--r-pill);background:var(--sky-50);border:1px solid var(--sky-100);color:var(--navy-800);font-weight:600;font-size:15px}
+.aff li .ic{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--navy-600);color:#fff;flex:none}
+.aff li .ic svg{width:15px;height:15px}
+.aff a{border-bottom:1px solid var(--sky-300)}
+.aff a:hover{border-color:var(--navy-600)}
+.dp-duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:var(--s-8)}
+.dp-duo .fcard a{color:var(--navy-600);font-weight:600;border-bottom:1px solid var(--sky-300)}
+.dp-duo .fcard a:hover{border-color:var(--navy-600)}
+
+/* The other doctor (home .doctors, as a link card) */
+.dp-next{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center;padding:28px 32px 28px 28px;border-radius:40px 40px 40px 0;background:var(--grad-navy);color:#C9D6F3;position:relative;overflow:hidden}
+.dp-next::after{content:"";position:absolute;right:-90px;bottom:-120px;width:320px;height:320px;background:url(../logo-mark.png) center/contain no-repeat;filter:brightness(0) invert(1);opacity:.05;pointer-events:none}
+.dp-next .av{width:120px;height:150px;border-radius:120px 120px 18px 18px;overflow:hidden;border:5px solid rgba(255,255,255,.08)}
+.dp-next .av img{width:100%;height:100%;object-fit:cover}
+.dp-next small{display:block;color:#8FA3D6;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.dp-next h3{color:#fff;font-size:clamp(24px,2.4vw,30px);margin-bottom:10px}
+.dp-next h3 .hl-serif{color:var(--gold-500)}
+.dp-next p{margin:0;color:#C9D6F3;max-width:60ch}
+
+/* ---------- 9. Responsive ---------- */
+@media (max-width:1199px){
+  .subnav{justify-content:flex-start;overflow-x:auto;scrollbar-width:none;border-radius:var(--r-lg)}
+  .subnav::-webkit-scrollbar{display:none}
+}
+@media (max-width:991px){
+  .ph-grid,.cta-grid,.dp-grid{grid-template-columns:1fr}
+  .ph-card{justify-self:start}
+  .cta-side{padding-left:0;border-left:0;padding-top:28px;border-top:1px solid rgba(255,255,255,.1)}
+  .dp-side{max-width:440px}
+  .dp-next{grid-template-columns:auto 1fr}
+  .dp-next .mbtn{grid-column:1/-1;justify-self:start}
+}
+@media (max-width:640px){
+  .dp-duo,.chk.two{grid-template-columns:1fr}
+  .edu li{grid-template-columns:72px 1fr;gap:14px}
+  .edu .yr{font-size:24px}
+  .pull{padding:24px 22px 24px 24px}
+  .dp-next{grid-template-columns:1fr;padding:24px}
+  .ph-card{max-width:none}
+}

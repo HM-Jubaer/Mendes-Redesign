@@ -11,6 +11,14 @@
 
   if (window.lucide) lucide.createIcons();
 
+  /* ---------- Design preview: point the WordPress slugs at the static pages built so far ---------- */
+  const BUILT = ['meet-dr-paul-m-mendes'];
+  $$('a[href^="/"]').forEach((a) => {
+    const slug = a.getAttribute('href').slice(1).split('#')[0];
+    if (slug === 'home') a.setAttribute('href', 'home.html');
+    else if (BUILT.includes(slug)) a.setAttribute('href', `${slug}.html`);
+  });
+
   /* ---------- Preloader (fades over .6s) ---------- */
   const pre = $('.preloader');
   const hidePre = () => pre && pre.classList.add('done');
@@ -51,7 +59,7 @@
   /* ---------- Hero slideshow (5 slides, 5.5s, 1.2s crossfade) ---------- */
   const slides = $$('#slides figure'), dots = $('.slide-dots');
   let cur = 0, timer;
-  slides.forEach((_, i) => {
+  if (slides.length) slides.forEach((_, i) => {
     const b = document.createElement('button');
     b.setAttribute('aria-label', `Show slide ${i + 1}`);
     if (!i) b.classList.add('on');
@@ -63,7 +71,7 @@
     cur = (i + slides.length) % slides.length;
     slides[cur].classList.add('on'); dots.children[cur].classList.add('on');
   };
-  const play = () => { clearInterval(timer); if (motion) timer = setInterval(() => go(cur + 1), 5500); };
+  const play = () => { clearInterval(timer); if (motion && slides.length) timer = setInterval(() => go(cur + 1), 5500); };
   play();
 
   /* ---------- Sticky nav (Denox: > 50px, slide-down .7s) + scroll-top ---------- */
@@ -147,13 +155,15 @@
   /* Desktop-only scroll set pieces */
   gsap.matchMedia().add('(min-width: 992px)', () => {
     /* "What sets us apart" cards scroll back into line (Denox process: 300/100/300) */
-    gsap.fromTo('.sb-item', { y: (i) => [300, 100, 300][i] }, {
+    if ($('#apart .sb-item')) gsap.fromTo('.sb-item', { y: (i) => [300, 100, 300][i] }, {
       y: 0, ease: 'none',
       scrollTrigger: { trigger: '#apart', start: 'top center', end: 'bottom 95%', scrub: true },
     });
     /* Gentle parallax on the welcome mosaic and the doctors' arches */
-    gsap.to('.mosaic .m1', { yPercent: -6, ease: 'none', scrollTrigger: { trigger: '.welcome', scrub: true } });
-    gsap.to('.mosaic .m2', { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.welcome', scrub: true } });
-    gsap.to('.arch:nth-child(2) .frame', { y: -40, ease: 'none', scrollTrigger: { trigger: '.doctors', scrub: true } });
+    if ($('.welcome .mosaic')) {
+      gsap.to('.mosaic .m1', { yPercent: -6, ease: 'none', scrollTrigger: { trigger: '.welcome', scrub: true } });
+      gsap.to('.mosaic .m2', { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.welcome', scrub: true } });
+    }
+    if ($('.doctors .arch')) gsap.to('.arch:nth-child(2) .frame', { y: -40, ease: 'none', scrollTrigger: { trigger: '.doctors', scrub: true } });
   });
 })();
