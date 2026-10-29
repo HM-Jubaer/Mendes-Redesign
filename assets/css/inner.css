@@ -275,6 +275,9 @@
 .form-foot .req b{color:var(--gold-600)}
 .form-side{display:grid;gap:24px}
 .form-side .panel-navy .tel-link{color:#fff;margin-top:8px}
+.form-legend{margin:8px 0 -4px;padding-top:4px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy-600)}
+.form-legend:first-child{margin-top:0;padding-top:0}
+.form-side .faq-more{margin-top:0}
 .panel .hours{margin-bottom:22px}
 .panel .hours li{color:var(--navy-900);padding:7px 0;border-bottom:1px dashed var(--line)}
 .panel .hours li span{color:var(--slate-500)}
