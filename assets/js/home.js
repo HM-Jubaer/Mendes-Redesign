@@ -12,7 +12,7 @@
   if (window.lucide) lucide.createIcons();
 
   /* ---------- Design preview: point the WordPress slugs at the static pages built so far ---------- */
-  const BUILT = ['meet-dr-paul-m-mendes', 'meet-dr-charles-h-mendes', 'meet-the-team', 'what-sets-us-apart', 'office-visits', 'financial-information', 'before-and-after', 'testimonials', 'dental-faqs', 'office-location'];
+  const BUILT = ['meet-dr-paul-m-mendes', 'meet-dr-charles-h-mendes', 'meet-the-team', 'what-sets-us-apart', 'office-visits', 'financial-information', 'before-and-after', 'testimonials', 'dental-faqs', 'office-location', 'appointment-request'];
   $$('a[href^="/"]').forEach((a) => {
     const slug = a.getAttribute('href').slice(1).split('#')[0];
     if (slug === 'home') a.setAttribute('href', 'home.html');
@@ -83,14 +83,21 @@
   });
 
   /* ---------- FAQ accordion (one open at a time) ---------- */
-  $('.acc-q').forEach((q) => q.addEventListener('click', () => {
+  $$('.acc-q').forEach((q) => q.addEventListener('click', () => {
     const item = q.closest('.acc-item'), open = !item.classList.contains('open');
-    $('.acc-item.open', item.parentElement).forEach((i) => {
+    $$('.acc-item.open', item.parentElement).forEach((i) => {
       i.classList.remove('open');
       i.querySelector('.acc-q').setAttribute('aria-expanded', 'false');
     });
     if (open) { item.classList.add('open'); q.setAttribute('aria-expanded', 'true'); }
     if (window.ScrollTrigger) setTimeout(() => ScrollTrigger.refresh(), 400);
+  }));
+
+  /* ---------- Design preview forms: confirm on the button instead of posting ---------- */
+  $$('form[data-demo]').forEach((f) => f.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = f.querySelector('[type=submit]');
+    if (btn) btn.innerHTML = 'Request sent — we’ll call you shortly';
   }));
 
   /* ---------- Sticky nav (Denox: > 50px, slide-down .7s) + scroll-top ---------- */
