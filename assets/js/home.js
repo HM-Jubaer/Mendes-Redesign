@@ -12,7 +12,7 @@
   if (window.lucide) lucide.createIcons();
 
   /* ---------- Design preview: point the WordPress slugs at the static pages built so far ---------- */
-  const BUILT = ['meet-dr-paul-m-mendes', 'meet-dr-charles-h-mendes', 'meet-the-team', 'what-sets-us-apart', 'office-visits', 'financial-information'];
+  const BUILT = ['meet-dr-paul-m-mendes', 'meet-dr-charles-h-mendes', 'meet-the-team', 'what-sets-us-apart', 'office-visits', 'financial-information', 'before-and-after'];
   $$('a[href^="/"]').forEach((a) => {
     const slug = a.getAttribute('href').slice(1).split('#')[0];
     if (slug === 'home') a.setAttribute('href', 'home.html');
@@ -73,6 +73,14 @@
   };
   const play = () => { clearInterval(timer); if (motion && slides.length) timer = setInterval(() => go(cur + 1), 5500); };
   play();
+
+  /* ---------- Before/after compare sliders (range input drives --pos) ---------- */
+  $$('[data-ba]').forEach((ba) => {
+    const r = ba.querySelector('input');
+    const set = () => ba.style.setProperty('--pos', r.value + '%');
+    r.addEventListener('input', set);
+    set();
+  });
 
   /* ---------- Sticky nav (Denox: > 50px, slide-down .7s) + scroll-top ---------- */
   const navWrap = $('#navWrap'), toTop = $('#scrollTop');
