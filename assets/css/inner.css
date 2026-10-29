@@ -278,6 +278,10 @@
 .form-legend{margin:8px 0 -4px;padding-top:4px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy-600)}
 .form-legend:first-child{margin-top:0;padding-top:0}
 .form-side .faq-more{margin-top:0}
+.form .radios{border:0;margin:0;padding:0;flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px 22px}
+.form .radios legend{width:100%;padding:0;margin-bottom:12px;font-size:13px;font-weight:600;color:var(--navy-800)}
+.form .radios label{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;color:var(--slate-700);cursor:pointer}
+.form .radios input{width:18px;height:18px;accent-color:var(--navy-600)}
 .panel .hours{margin-bottom:22px}
 .panel .hours li{color:var(--navy-900);padding:7px 0;border-bottom:1px dashed var(--line)}
 .panel .hours li span{color:var(--slate-500)}
