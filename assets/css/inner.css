@@ -338,6 +338,10 @@
 .opt-grid .fcard h3{font-size:20px}
 .opt-grid .fcard p{font-size:15px}
 .tx-close{margin-top:var(--s-6)}
+.tx-main .panel-navy{margin:var(--s-6) 0}
+.tx-main .panel-navy p{color:#C9D6F3}
+.tx-main .panel-navy .tel-link{color:#fff;margin-top:6px}
+.tx-main .chk li{font-size:15.5px;line-height:1.6}
 .tx-intro{display:grid;grid-template-columns:1fr 220px;gap:32px;align-items:center;margin-bottom:var(--s-5)}
 .tx-pic{margin:var(--s-5) 0 0;padding:10px;border-radius:40px 40px 40px 0;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 0 40px 5px rgba(15,29,69,.05)}
 .tx-pic img{width:100%;height:auto;border-radius:30px 30px 30px 0}
